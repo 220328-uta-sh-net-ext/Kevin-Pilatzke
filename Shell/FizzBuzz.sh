@@ -7,7 +7,7 @@
     -Print nothing if the number isn't divisible by 3 or 5
 -Create the file by name fizzbuzz.sh"
 
-re='^[0-9]+$'
+re='-?[0-9]+'
 echo "Hello! Would you like to play a game?"
 echo "Pick a number from 1 to 20"
 read -p "Option: " Option
