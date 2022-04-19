@@ -1,0 +1,12 @@
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantBL.deps.json
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantBL.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantBL.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.csproj.AssemblyReference.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.AssemblyInfoInputs.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.AssemblyInfo.cs
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.csproj.CoreCompileInputs.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\refint\RestaurantBL.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\ref\RestaurantBL.dll
