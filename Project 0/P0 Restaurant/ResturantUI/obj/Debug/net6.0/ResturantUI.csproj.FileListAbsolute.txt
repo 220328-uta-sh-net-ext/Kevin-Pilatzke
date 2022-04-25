@@ -13,3 +13,11 @@ D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restau
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.pdb
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.genruntimeconfig.cache
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\C#\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ref\ResturantUI.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.csproj.AssemblyReference.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.AssemblyInfoInputs.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.AssemblyInfo.cs
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.csproj.CoreCompileInputs.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\refint\ResturantUI.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.pdb

@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "ResturantModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ResturantModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ResturantModels.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ResturantModels/1.0.0": {
+      "type": "project",
+      "path": "../ResturantModels/ResturantModels.csproj",
+      "msbuildProject": "../ResturantModels/ResturantModels.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "ResturantModels >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Black\\.nuget\\packages\\": {}
@@ -13,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\ResturantUI\\ResturantUI.csproj",
+      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantUI\\ResturantUI.csproj",
       "projectName": "ResturantUI",
-      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\ResturantUI\\ResturantUI.csproj",
+      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantUI\\ResturantUI.csproj",
       "packagesPath": "C:\\Users\\Black\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\ResturantUI\\obj\\",
+      "outputPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Black\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\ResturantModels.csproj": {
+              "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\ResturantModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

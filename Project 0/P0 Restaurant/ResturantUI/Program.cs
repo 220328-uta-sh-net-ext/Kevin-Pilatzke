@@ -12,9 +12,11 @@ while (repeat)
     {
         case "Log in":
             Console.WriteLine("Starting Log in...");
+            //Need Log in section
             break;
         case "Create new account":
-            Console.WriteLine("Starting Create new account...");
+            Console.WriteLine("Starting Create New Account...");
+            //Need Create account Section
             break;
         case "MainMenu":
             menu = new MainMenu();

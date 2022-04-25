@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\RestaurantBL\\RestaurantBL.csproj",
+      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\RestaurantBL\\RestaurantBL.csproj",
       "projectName": "RestaurantBL",
-      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\RestaurantBL\\RestaurantBL.csproj",
+      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\RestaurantBL\\RestaurantBL.csproj",
       "packagesPath": "C:\\Users\\Black\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\C#\\P0 Restaurant\\RestaurantBL\\obj\\",
+      "outputPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\RestaurantBL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Black\\AppData\\Roaming\\NuGet\\NuGet.Config",
