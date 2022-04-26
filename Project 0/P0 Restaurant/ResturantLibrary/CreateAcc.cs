@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantBL
+namespace ResturantDL
 {
-    internal class Login //Login via saved info on SQL -> will lead to MainMenu
+    internal class CreateAcc
     {
     }
 }

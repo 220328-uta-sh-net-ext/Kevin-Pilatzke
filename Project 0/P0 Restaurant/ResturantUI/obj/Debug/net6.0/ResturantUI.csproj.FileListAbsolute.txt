@@ -21,3 +21,13 @@ D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.dll
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\refint\ResturantUI.dll
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantUI.exe
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantUI.deps.json
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantUI.runtimeconfig.json
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantUI.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantUI.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantModels.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantModels.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.csproj.CopyComplete
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.genruntimeconfig.cache
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ref\ResturantUI.dll

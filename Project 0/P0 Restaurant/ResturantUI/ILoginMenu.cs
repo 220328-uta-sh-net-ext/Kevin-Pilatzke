@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantBL
+namespace ResturantUI
 {
-    internal class CreateAcc
+    public interface ILoginMenu
     {
+        void Display();
+        string UserChoice();
     }
 }

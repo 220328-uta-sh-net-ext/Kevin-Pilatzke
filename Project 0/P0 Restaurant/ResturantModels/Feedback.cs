@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResturantLibrary
+namespace ResturantModels
 {
-    internal class Review
+    internal class Feedback //customer feedback (Review and Rating into JSON)
     {
     }
 }

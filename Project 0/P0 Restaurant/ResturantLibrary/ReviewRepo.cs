@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResturantUI
+namespace ResturantLibrary
 {
-    public interface IMenu
+    public class ReviewRepo //Will have the JSON review information
     {
-        void Display();
-        string UserChoice();
+
     }
 }
