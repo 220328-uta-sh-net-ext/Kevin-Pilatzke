@@ -23,10 +23,13 @@ namespace ResturantUI
             {
                 case "1":
                     Console.WriteLine("Enter Username :");
-                    Console.ReadLine();
+                    var userName = Console.ReadLine();
                     Console.WriteLine("Enter Password :");
-                    Console.ReadLine();
-                    return "Main Menu"; //able to store Log in account?
+                    var passWord = Console.ReadLine();
+                    if (userName == "admin" && passWord == "pass123")
+                        return "Admin Menu";
+                    else 
+                        return "Main Menu";
                 case "0":
                     Console.WriteLine("Heading back");
                     return "Start Menu";  

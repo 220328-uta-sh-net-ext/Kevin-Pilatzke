@@ -10,7 +10,8 @@ namespace ResturantUI
 {
     public class CreateAccMenu : IMenu
     {
-        private static UserAcc newUser = new UserAcc(); 
+        private static UserAcc newUser = new UserAcc();
+        private IRepo _repo = new SqlRepo();
         public void Display()
         { 
             Console.WriteLine("Enter <1> to make New Username and Password (Limit to 20 characters)");
@@ -29,7 +30,7 @@ namespace ResturantUI
                     Console.WriteLine("Password: ");
                     newUser.Password = Console.ReadLine();
                     Console.WriteLine("Creating Account");
-                    //Command to send to repo
+                    _repo.AddUser(newUser);
                     return "Log in";
                 case "0":
                     Console.WriteLine("Heading to Start Menu");

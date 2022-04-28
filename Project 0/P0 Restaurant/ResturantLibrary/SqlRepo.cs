@@ -1,4 +1,5 @@
 ﻿global using Serilog;
+using Microsoft.Data.SqlClient;
 using ResturantModels;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,12 @@ namespace ResturantDL
         }
         public UserAcc AddUser(UserAcc user)
         {
-            string commandString = "INSERT INTO dbo.UserAccounts (Name) VALUES (@name)";
+            string commandString = "INSERT INTO dbo.UserAccounts (Name, Password) VALUES (@name, @password)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             command.Parameters.AddWithValue("@name", user.Username);
+            command.Parameters.AddWithValue("@password", user.Password);
             connection.Open();
             command.ExecuteNonQuery();
 

@@ -4,7 +4,10 @@ namespace ResturantModels;
 
 public class Restaurant //List of Restaurants on the SQL database
 {
-    public string Name { get; set; }
-    public int Rating { get; set; } 
-    public int Zipcode { get; set; }    
+    public int RestaurantID { get; set; } 
+
+    public string RestaurantName { get; set; }  
+    public string City { get; set; }
+    public int State { get; set; } 
+    public int ZipCode { get; set; }    
 }
