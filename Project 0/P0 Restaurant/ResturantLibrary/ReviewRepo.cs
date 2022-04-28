@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResturantLibrary
 {
-    public class ReviewRepo //Will have the JSON review information
+    public class ReviewRepo //Will have the JSON review information (Likely have Rating in a different area)
     {
 
     }

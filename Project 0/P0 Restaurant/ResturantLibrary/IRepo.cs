@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResturantModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ResturantDL
 {
-    internal class CreateAcc
+    public interface IRepo
     {
+        UserAcc AddUser(UserAcc user);
     }
 }

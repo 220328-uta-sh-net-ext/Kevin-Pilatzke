@@ -31,3 +31,13 @@ D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.csproj.CopyComplete
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ResturantUI.genruntimeconfig.cache
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\obj\Debug\net6.0\ref\ResturantUI.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\Serilog.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantDL.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\ResturantUI\bin\Debug\net6.0\ResturantDL.pdb

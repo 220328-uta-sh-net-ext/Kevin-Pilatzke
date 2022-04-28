@@ -1,33 +1,40 @@
-﻿namespace ResturantUI
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ResturantUI
 {
-    class LoginMenu : ILoginMenu
+    internal class LoginMenu : IMenu
     {
         public void Display()
         {
-            Console.WriteLine("Welcome to the Resturant App!");
-            Console.WriteLine("Please log in or make a new account");
-            Console.WriteLine("Enter <1> to Log in");
-            Console.WriteLine("Enter <2> to make a new account");
-            Console.WriteLine("Enter <0> to leave the app");
+            Console.WriteLine("Press <1> to Login");
+            Console.WriteLine("Press <0> to Exit");
+
         }
+
         public string UserChoice()
         {
             string userInput = Console.ReadLine();
 
             switch (userInput)
             {
-                case "0":
-                    return "Exit";
                 case "1":
-                    return "Log in";
-                case "2":
-                    return "Create new account";
+                    Console.WriteLine("Enter Username :");
+                    Console.ReadLine();
+                    Console.WriteLine("Enter Password :");
+                    Console.ReadLine();
+                    return "Main Menu"; //able to store Log in account?
+                case "0":
+                    Console.WriteLine("Heading back");
+                    return "Start Menu";  
                 default:
                     Console.WriteLine("Please input a valid response");
-                    Console.WriteLine("Please press <enter> to continue");
-                    Console.ReadLine();
-                    return "LoginMenu";
-            }
+                    return "Log in";
+            }    
+
         }
     }
 }

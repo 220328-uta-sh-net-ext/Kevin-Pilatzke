@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResturantUI
 {
-    public interface ILoginMenu
+    public interface IMenu
     {
         void Display();
         string UserChoice();
