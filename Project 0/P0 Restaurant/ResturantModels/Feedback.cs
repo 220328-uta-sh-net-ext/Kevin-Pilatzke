@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResturantModels
 {
-    internal class Feedback //customer feedback (Review and Rating on DB)
+    public class Feedback
     {
         public string Review { get; set; }
         public int Rating { get; set; } 

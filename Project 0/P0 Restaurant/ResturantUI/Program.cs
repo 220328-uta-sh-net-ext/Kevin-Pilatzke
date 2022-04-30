@@ -3,7 +3,7 @@
 bool repeat = true;
 IMenu menu = new StartMenu();  
 
-while (repeat) //Initial Menu: Most Log in before next menu is available
+while (repeat) 
 {
     menu.Display();
     string ans = menu.UserChoice();
@@ -33,7 +33,7 @@ while (repeat) //Initial Menu: Most Log in before next menu is available
             Console.WriteLine("Read Reviews");
             //Add Program
             break;
-        case "Write Review and Rating":
+        case "Review and Rating":
             Console.WriteLine("Write Review with Rating");
             //Add Program
             break;

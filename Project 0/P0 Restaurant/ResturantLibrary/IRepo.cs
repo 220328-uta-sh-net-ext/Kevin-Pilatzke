@@ -10,5 +10,7 @@ namespace ResturantDL
     public interface IRepo
     {
         UserAcc AddUser(UserAcc user);
+        Restaurant AddRestaurant(Restaurant restaurant);
+        Feedback AddFeedback(Feedback feedback);    
     }
 }
