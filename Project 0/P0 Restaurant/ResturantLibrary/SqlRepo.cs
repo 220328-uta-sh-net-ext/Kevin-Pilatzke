@@ -1,5 +1,4 @@
-﻿global using Serilog;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using ResturantModels;
 using System;
 using System.Collections.Generic;
@@ -7,22 +6,18 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-//Log.Logger = new LoggerConfiguration()
- //   .WriteTo.File("./Logs/createaccount.txt")
-  //  .CreateLogger();
+using System.Data;
 
 namespace ResturantDL
 {
     public class SqlRepo : IRepo
 
     {
-        private const string connectionFilePath = "D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Project 0/P0 Restaurant/ResturantLibrary/Database/Connection.txt";
-        private readonly string connectionString;
+        readonly string connectionString;
 
-        public SqlRepo()
+        public SqlRepo(string connectionString)
         {
-            connectionString = File.ReadAllText(connectionFilePath);
+            this.connectionString = connectionString;
         }
 
         public Feedback AddFeedback(Feedback feedback)

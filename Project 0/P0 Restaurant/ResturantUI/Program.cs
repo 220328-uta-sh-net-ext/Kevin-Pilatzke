@@ -1,4 +1,15 @@
-﻿using ResturantUI;
+﻿global using Serilog;
+using ResturantDL;
+using ResturantUI;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("./Logs/createaccount.txt")
+    .CreateLogger();
+
+string connectionFilePath = "D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Project 0/P0 Restaurant/ResturantLibrary/Database/Connection.txt";
+string connectionString = File.ReadAllText(connectionFilePath);
+
+IRepo repo = new SqlRepo(connectionString);
 
 bool repeat = true;
 IMenu menu = new StartMenu();  
@@ -20,7 +31,7 @@ while (repeat)
             break;
         case "Create New Account":
             Console.WriteLine("Starting Create New Account...");
-            menu = new CreateAccMenu();
+            menu = new CreateAccMenu(repo);
             break;
         case "Main Menu":
             menu = new MainMenu();
