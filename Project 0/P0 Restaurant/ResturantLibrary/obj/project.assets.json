@@ -624,14 +624,14 @@
           }
         }
       },
-      "ResturantModels/1.0.0": {
+      "RestaurantModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/ResturantModels.dll": {}
+          "bin/placeholder/RestaurantModels.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ResturantModels.dll": {}
+          "bin/placeholder/RestaurantModels.dll": {}
         }
       }
     }
@@ -2391,16 +2391,16 @@
         "version.txt"
       ]
     },
-    "ResturantModels/1.0.0": {
+    "RestaurantModels/1.0.0": {
       "type": "project",
-      "path": "../ResturantModels/ResturantModels.csproj",
-      "msbuildProject": "../ResturantModels/ResturantModels.csproj"
+      "path": "../ResturantModels/RestaurantModels.csproj",
+      "msbuildProject": "../ResturantModels/RestaurantModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.Data.SqlClient >= 4.1.0",
-      "ResturantModels >= 1.0.0",
+      "RestaurantModels >= 1.0.0",
       "Serilog >= 2.11.0",
       "Serilog.Sinks.File >= 5.0.0"
     ]
@@ -2411,9 +2411,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\ResturantDL.csproj",
-      "projectName": "ResturantDL",
-      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\ResturantDL.csproj",
+      "projectUniqueName": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\RestaurantDL.csproj",
+      "projectName": "RestaurantDL",
+      "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\RestaurantDL.csproj",
       "packagesPath": "C:\\Users\\Black\\.nuget\\packages\\",
       "outputPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\obj\\",
       "projectStyle": "PackageReference",
@@ -2432,8 +2432,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\ResturantModels.csproj": {
-              "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\ResturantModels.csproj"
+            "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\RestaurantModels.csproj": {
+              "projectPath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantModels\\RestaurantModels.csproj"
             }
           }
         }

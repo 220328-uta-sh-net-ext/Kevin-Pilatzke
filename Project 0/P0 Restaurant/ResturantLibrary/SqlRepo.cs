@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.SqlClient;
-using ResturantModels;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using RestaurantModels;
 
-namespace ResturantDL
+namespace RestaurantDL
 {
     public class SqlRepo : IRepo
 
@@ -20,9 +20,42 @@ namespace ResturantDL
             this.connectionString = connectionString;
         }
 
+        public List<Restaurant> GetAllRestaurantsConnected()
+        {
+            string commandString = "SELECT * FROM RestaurantInformation;";
+            using SqlConnection connection = new(connectionString);
+            using IDbCommand command = new SqlCommand(commandString, connection);
+            connection.Open();
+            using IDataReader reader = command.ExecuteReader();
+            var restaurants = new List<Restaurant>();
+            return restaurants;
+        }
+
+        public List<UserAcc> GetAllUserAccConnected()
+        {
+            string commandString = "SELECT * FROM UserAccounts;";
+            using SqlConnection connection = new(connectionString);
+            using IDbCommand command = new SqlCommand(commandString, connection);
+            connection.Open();
+            using IDataReader reader = command.ExecuteReader();
+            var user = new List<UserAcc>();
+            return user;
+        }
+
+        public List<Feedback> GetAllFeedbackConnected()
+        {
+            string commandString = "SELECT * FROM ReviewRating";
+            using SqlConnection connection = new(connectionString);
+            using IDbCommand command = new SqlCommand(commandString, connection);
+            connection.Open();
+            using IDataReader reader = command.ExecuteReader();
+            var feedback = new List<Feedback>();
+            return feedback;
+        }
+
         public Feedback AddFeedback(Feedback feedback)
         {
-            string commandString = "INSERT INTO dbo.ReviewRating VALUE (@username, @restaurantname, @review, @rating)";
+            string commandString = "INSERT INTO dbo.ReviewRating VALUES (@username, @restaurantname, @review, @rating)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
@@ -38,12 +71,12 @@ namespace ResturantDL
 
         public Restaurant AddRestaurant(Restaurant restaurant)
         {
-            string commandString = "INSERT INTO dbo.RestaurantInformation VALUE (@restaurantid, @restaurantname, @city, @state, @zipcode)";
+            string commandString = "INSERT INTO dbo.RestaurantInformation VALUES (@restaurantid, @restaurantname, @city, @state, @zipcode)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             command.Parameters.AddWithValue("@restaurantid", restaurant.RestaurantID);
-            command.Parameters.AddWithValue("@restaurntname", restaurant.RestaurantName);
+            command.Parameters.AddWithValue("@restaurantname", restaurant.RestaurantName);
             command.Parameters.AddWithValue("@city", restaurant.City);
             command.Parameters.AddWithValue("@state", restaurant.State);
             command.Parameters.AddWithValue("@zipcode", restaurant.ZipCode);

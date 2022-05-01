@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace RestaurantBL
 {
     public interface IAccountLogic
     {
-        CreateAcc AddUser(CreateAcc ca);
+        List<Restaurant> SearchRestaurant(string restaurantName);
     }
 }

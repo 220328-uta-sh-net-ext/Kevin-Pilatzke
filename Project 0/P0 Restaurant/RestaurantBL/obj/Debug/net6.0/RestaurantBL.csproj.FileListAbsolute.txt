@@ -22,6 +22,8 @@ D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\refint\RestaurantBL.dll
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.pdb
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\ref\RestaurantBL.dll
-D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\ResturantModels.dll
-D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\ResturantModels.pdb
 D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\obj\Debug\net6.0\RestaurantBL.csproj.CopyComplete
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantDL.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantModels.dll
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantDL.pdb
+D:\Documents\Work\Programming Info\220328utashnetext\Kevin-Pilatzke\Project 0\P0 Restaurant\RestaurantBL\bin\Debug\net6.0\RestaurantModels.pdb

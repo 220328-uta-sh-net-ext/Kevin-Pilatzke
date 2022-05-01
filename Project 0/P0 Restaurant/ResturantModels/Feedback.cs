@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResturantModels
+namespace RestaurantModels
 {
     public class Feedback
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xlkx2RbO13hYBHe2S5r+VsPf55pZS2xSmWbAFQk+Y8LL+ba5wK5mT1Zv7rxGNy4K6QxphvTJXuJLsH4ogL9+dw==",
+  "dgSpecHash": "nKR6pvMjWGy1wukJSGSj/Xawytm6rcrRp9TLif+Byf2sP8n035r83RcGNyLaff4QConLnCnBHcdOuTyqgZjq5g==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\ResturantDL.csproj",
+  "projectFilePath": "D:\\Documents\\Work\\Programming Info\\220328utashnetext\\Kevin-Pilatzke\\Project 0\\P0 Restaurant\\ResturantLibrary\\RestaurantDL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Black\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Black\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

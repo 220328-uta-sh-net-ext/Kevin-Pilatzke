@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantBL", "RestaurantBL\RestaurantBL.csproj", "{00EC360A-BA6F-416C-8599-192D0A4C8477}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResturantUI", "ResturantUI\ResturantUI.csproj", "{24B36DCC-EDD5-4D36-83A5-D66E581F50EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantUI", "ResturantUI\RestaurantUI.csproj", "{24B36DCC-EDD5-4D36-83A5-D66E581F50EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResturantDL", "ResturantLibrary\ResturantDL.csproj", "{84BFB425-BD57-4728-B822-8ED0FC811BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantDL", "ResturantLibrary\RestaurantDL.csproj", "{84BFB425-BD57-4728-B822-8ED0FC811BEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResturantModels", "ResturantModels\ResturantModels.csproj", "{04D2C413-4EF7-47D4-A02F-10E81318F919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantModels", "ResturantModels\RestaurantModels.csproj", "{04D2C413-4EF7-47D4-A02F-10E81318F919}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{5E81F564-FB20-4F55-98DD-09F2986BAD79}"
 EndProject

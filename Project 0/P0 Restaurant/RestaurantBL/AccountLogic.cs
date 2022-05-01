@@ -1,5 +1,5 @@
-﻿using ResturantDL;
-using ResturantModels;
+﻿using RestaurantDL;
+using RestaurantModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +16,11 @@ namespace RestaurantBL
             this.repo = repo;
         }
 
-        public CreateAcc AddUser(CreateAcc ca)
+        public List<Restaurant> SearchRestaurant(string restaurantName)
         {
-          
+            List<Restaurant> restaurant = repo.GetAllRestaurantsConnected();
+            var filteredRestaurants = restaurant.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
+            return filteredRestaurants;
         }
     }
 }

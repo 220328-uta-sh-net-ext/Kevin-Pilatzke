@@ -1,4 +1,4 @@
-﻿namespace ResturantUI
+﻿namespace RestaurantUI
 {
     class StartMenu : IMenu
     {
@@ -6,7 +6,7 @@
         {
             Console.WriteLine("Welcome to the Resturant App!");
             Console.WriteLine("Enter <1> to make an account");
-            Console.WriteLine("Enter <2> to login");
+            Console.WriteLine("Enter <2> to Login");
             Console.WriteLine("Enter <0> to leave the app");
         }
         public string UserChoice()

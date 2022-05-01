@@ -1,12 +1,13 @@
-﻿using ResturantDL;
-using ResturantModels;
+﻿
+using RestaurantDL;
+using RestaurantModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResturantUI
+namespace RestaurantUI
 {
     public class CreateAccMenu : IMenu
     {
@@ -31,11 +32,27 @@ namespace ResturantUI
             {
                 case "1":
                     Console.WriteLine("Username: ");
-                    newUser.Username = Console.ReadLine();
+                    try
+                    {
+                        newUser.Username = Console.ReadLine();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                     Console.WriteLine("Password: ");
                     newUser.Password = Console.ReadLine();
                     Console.WriteLine("Creating Account");
-                    repo.AddUser(newUser);
+                    try
+                    {
+                        Log.Information("Creating Account Name: " +newUser.Username);
+                        repo.AddUser(newUser);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Information("Failed to Create Account");
+                        Console.WriteLine(ex.Message);  
+                    }                    
                     return "Log in";
                 case "0":
                     Console.WriteLine("Heading to Start Menu");

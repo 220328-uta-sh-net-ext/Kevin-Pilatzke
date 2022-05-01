@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ResturantLibrary\ResturantDL.csproj" />
-    <ProjectReference Include="..\ResturantModels\ResturantModels.csproj" />
+    <ProjectReference Include="..\RestaurantBL\RestaurantBL.csproj" />
   </ItemGroup>
 
 </Project>
