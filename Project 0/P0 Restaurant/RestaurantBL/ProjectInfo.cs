@@ -10,7 +10,7 @@
  *Models:   -User/Restaurant/Review
  *
  *Additional requirements:  -Exeception Handing (Try/Catch)
- *                          -Input Validation-?
+ *                          -Input Validation-(loop with exception handing)
  *                          -Logging (serilog)
  *                          -10 unit tests (Xunit)
  *                          -Data should be persisted (no hardcode)

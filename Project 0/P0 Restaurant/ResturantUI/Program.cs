@@ -3,6 +3,9 @@ using RestaurantBL;
 using RestaurantDL;
 using RestaurantUI;
 
+/// <summary>
+/// Create Logger. Will keep track of new accounts created, errors throughout, logging in via admin account, adding new restaurants
+/// </summary>
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Project 0/P0 Restaurant/ResturantLibrary/Database/user.txt")
     .CreateLogger();
@@ -29,7 +32,7 @@ while (repeat)
             break;
         case "Log in":
             Console.WriteLine("Heading to Log in Menu!");
-            menu = new LoginMenu();
+            menu = new LoginMenu(logic);
             break;
         case "Create New Account":
             Console.WriteLine("Heading to Create Account Menu!");
@@ -41,15 +44,15 @@ while (repeat)
             break;
         case "Search Restaurants":
             Console.WriteLine("Heading to Search Restaurant Menu!");
-            menu = new SearchRestaurants(logic);
+            menu = new SearchRestaurants(logic, repo);
             break;
         case "Review and Rating":
             Console.WriteLine("Heading to Review and Rating Menu!");
-            menu = new ReviewRating();
+            menu = new ReviewRating(repo);
             break;
         case "Admin Menu":
             Console.WriteLine("Heading to Admin Menu!");
-            menu = new AdminMenu(repo);
+            menu = new AdminMenu(repo, logic);
             break;
         case "Exit":
             Console.WriteLine("Thank you for using the Resturant App! Goodbye.");

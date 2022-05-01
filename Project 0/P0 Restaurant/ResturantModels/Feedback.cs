@@ -11,6 +11,12 @@ namespace RestaurantModels
         public string Review { get; set; }
         public int Rating { get; set; } 
         public string Username { get; set; }
-        public string RestaurantName { get; set; } 
+        public string RestaurantName { get; set; }
+
+        public override string ToString()
+        {
+            string results = $"Username: {Username}\nRestaurant: {RestaurantName}\nRating: {Rating}\nReview: {Review}\n";
+            return results;
+        }
     }
 }

@@ -75,7 +75,36 @@ namespace RestaurantDL
             connection.Open();
             using IDataReader reader = command.ExecuteReader();
             var user = new List<UserAcc>();
+            while (reader.Read())
+            {
+                user.Add(new UserAcc
+                {
+                    Username = reader.GetString(0),
+                    Password = reader.GetString(1),
+                });                
+            }
             return user;
+        }
+        public List<UserAcc> GetAllUserAccs()
+        {
+            string commandString = "SELECT * FROM UserAccounts;";
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            connection.Open();
+            adapter.Fill(dataSet);
+            connection.Close();
+            var users = new List<UserAcc>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                users.Add(new UserAcc
+                {
+                    Username = (string)row[0],
+                    Password = (string)row[1]
+                });
+            }
+            return users;
         }
 
         public List<Feedback> GetAllFeedbackConnected()

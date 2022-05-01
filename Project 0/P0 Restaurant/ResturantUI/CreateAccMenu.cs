@@ -51,7 +51,8 @@ namespace RestaurantUI
                     catch (Exception ex)
                     {
                         Log.Information("Failed to Create Account");
-                        Console.WriteLine(ex.Message);  
+                        Console.WriteLine(ex.Message);
+                        return "Create new account";
                     }                    
                     return "Log in";
                 case "0":

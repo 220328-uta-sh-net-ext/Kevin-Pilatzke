@@ -1,41 +1,69 @@
-﻿using System;
+﻿using RestaurantBL;
+using RestaurantDL;
+using RestaurantModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RestaurantUI
-{
-    internal class LoginMenu : IMenu
+{ 
+    public class LoginMenu : IMenu
     {
+        readonly IAccountLogic logic;
+        public LoginMenu(IAccountLogic logic)
+        {
+            this.logic = logic;
+        }
         public void Display()
         {
             Console.WriteLine("Please Log in with your Account");
             Console.WriteLine("Press <1> to Login");
-            Console.WriteLine("Press <0> to Exit");
+            Console.WriteLine("Press <0> for Start Menu");
 
         }
 
         public string UserChoice()
         {
             string userInput = Console.ReadLine();
-            var userName = userInput;
 
             switch (userInput)
             {
                 case "1":
                     Console.WriteLine("Enter Username :");
-                    var name = Console.ReadLine();
-                    userName = name;
-                    Console.WriteLine("Enter Password :");
-                    var passWord = Console.ReadLine();
-                    if (name == "admin" && passWord == "pass123")
+                    var userName = Console.ReadLine();
+
+                    List<UserAcc> userResults = logic.GetUserAcc(userName);
+                    if (userResults.Count > 0)
                     {
-                        Log.Information("Entering Admin Menu with: " + name);
-                        return "Admin Menu";
+                        Console.WriteLine("Enter Password :");
+                        var passWord = Console.ReadLine();
+                        List<UserAcc> passwordResults = logic.GetPassword(passWord);
+                        if (passwordResults.Count > 0)
+                        {
+                            if (userName =="admin" && passWord == "pass123")
+                            {
+                                Log.Information("Entering Admin Menu with: " + userName);
+                                return "Admin Menu";
+                            }
+                            else
+                            {
+                                Console.WriteLine("Log in successful");
+                                return "Main Menu";
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invaild Password for {userName}");
+                            goto case "1";
+                        }
                     }
-                    else 
-                        return "Main Menu";
+                    else
+                    {
+                        Console.WriteLine("Not a Valid Account");
+                        goto case "1";
+                    }
                 case "0":
                     Console.WriteLine("Heading back");
                     return "Start Menu";  

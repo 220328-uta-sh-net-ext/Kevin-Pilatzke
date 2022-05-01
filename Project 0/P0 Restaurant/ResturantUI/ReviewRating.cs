@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantDL;
+using RestaurantModels;
 
 namespace RestaurantUI
 {
     public class ReviewRating : IMenu
     {
+        private readonly Feedback newFeedback = new Feedback();
+
+        readonly IRepo repo;
+
+        public ReviewRating(IRepo repo)
+        {
+            this.repo = repo;
+        }
         public void Display()
         {
             Console.WriteLine("Search and Place Reviews and Ratings");
@@ -22,13 +32,22 @@ namespace RestaurantUI
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Review");
-                    //Console.WriteLine($"username: {userName}");
-                    return "1";
+                    Console.WriteLine("Adding a new Review and Rating");
+                    Console.WriteLine("Enter your Username");
+                    newFeedback.Username = Console.ReadLine();
+                    Console.WriteLine("Enter the Restaurant");
+                    newFeedback.RestaurantName = Console.ReadLine();
+                    Console.WriteLine("Enter a Rating (1-5)");
+                    newFeedback.Rating = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter a Review (200 character limit)");
+                    newFeedback.Review = Console.ReadLine();
+                    Console.WriteLine("Adding Review and Rating");
+                    repo.AddFeedback(newFeedback);                    
+                    return "Review and Rating";
                 case "2":
-                    return "2";
+                    return "Review and Rating";
                 case "0":
-                    return "Start Menu";
+                    return "Main Menu";
                 default:
                     return "Review and Rating";
             }
