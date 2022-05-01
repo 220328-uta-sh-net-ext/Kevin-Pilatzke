@@ -1,4 +1,5 @@
 ﻿using RestaurantBL;
+using RestaurantModels;
 using RestaurantDL;
 using System;
 using System.Collections.Generic;
@@ -34,14 +35,12 @@ namespace RestaurantUI
                     return "ha";
                 case "2":
                     Console.WriteLine("Search by Restaurant Name, City, State or Zipcode");
-                    string name = Console.ReadLine();
-                    name = name.Trim();
-                    if (name != null)
-                    {
-                        List<RestaurantModels.Restaurant> results = logic.SearchRestaurant(name);
+                    string restaurantName = Console.ReadLine();
+                    restaurantName = restaurantName.Trim();
+                    List<Restaurant> results = logic.SearchRestaurant(restaurantName);
                         if (results.Count > 0)
                         {
-                            foreach (RestaurantModels.Restaurant r in results)
+                            foreach (var r in results)
                             {
                                 Console.WriteLine("********************");
                                 Console.WriteLine(r.ToString());
@@ -49,9 +48,8 @@ namespace RestaurantUI
                         }
                         else
                         {
-                            Console.WriteLine($"No Restaurant with {name} found.");
+                            Console.WriteLine($"No Restaurant with {restaurantName} found.");
                         }
-                    }
                 return "Search Restaurants";
                 case "0":
                     return "Start Menu";

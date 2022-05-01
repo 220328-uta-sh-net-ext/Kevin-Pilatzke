@@ -10,6 +10,7 @@ namespace RestaurantUI
     {
         public void Display()
         {
+            Console.WriteLine("Please Log in with your Account");
             Console.WriteLine("Press <1> to Login");
             Console.WriteLine("Press <0> to Exit");
 
@@ -18,16 +19,21 @@ namespace RestaurantUI
         public string UserChoice()
         {
             string userInput = Console.ReadLine();
+            var userName = userInput;
 
             switch (userInput)
             {
                 case "1":
                     Console.WriteLine("Enter Username :");
-                    var userName = Console.ReadLine();
+                    var name = Console.ReadLine();
+                    userName = name;
                     Console.WriteLine("Enter Password :");
                     var passWord = Console.ReadLine();
-                    if (userName == "admin" && passWord == "pass123")
+                    if (name == "admin" && passWord == "pass123")
+                    {
+                        Log.Information("Entering Admin Menu with: " + name);
                         return "Admin Menu";
+                    }
                     else 
                         return "Main Menu";
                 case "0":

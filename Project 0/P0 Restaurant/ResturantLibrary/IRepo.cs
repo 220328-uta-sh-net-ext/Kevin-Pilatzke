@@ -13,6 +13,7 @@ namespace RestaurantDL
         Restaurant AddRestaurant(Restaurant restaurant);
         Feedback AddFeedback(Feedback feedback);
         List<Restaurant> GetAllRestaurantsConnected();
+        List<Restaurant> GetAllRestaurants();
         List<UserAcc> GetAllUserAccConnected();
         List<Feedback> GetAllFeedbackConnected();
 

@@ -28,26 +28,27 @@ while (repeat)
             menu = new StartMenu();
             break;
         case "Log in":
-            Console.WriteLine("Log in!");
+            Console.WriteLine("Heading to Log in Menu!");
             menu = new LoginMenu();
             break;
         case "Create New Account":
-            Console.WriteLine("Create a new Account!");
+            Console.WriteLine("Heading to Create Account Menu!");
             menu = new CreateAccMenu(repo);
             break;
         case "Main Menu":
+            Console.WriteLine("Heading to Main Menu!");
             menu = new MainMenu();
             break;
         case "Search Restaurants":
-            Console.WriteLine("Searching Restaurents!");
+            Console.WriteLine("Heading to Search Restaurant Menu!");
             menu = new SearchRestaurants(logic);
             break;
         case "Review and Rating":
-            Console.WriteLine("Reviews with Ratings!");
-            //Add Program
+            Console.WriteLine("Heading to Review and Rating Menu!");
+            menu = new ReviewRating();
             break;
         case "Admin Menu":
-            Console.WriteLine("Entering Admin Menu!");
+            Console.WriteLine("Heading to Admin Menu!");
             menu = new AdminMenu(repo);
             break;
         case "Exit":

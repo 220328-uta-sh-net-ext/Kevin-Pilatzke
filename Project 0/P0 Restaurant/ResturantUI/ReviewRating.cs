@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantUI
 {
-    internal class ReviewRating : IMenu
+    public class ReviewRating : IMenu
     {
         public void Display()
         {
@@ -22,6 +22,8 @@ namespace RestaurantUI
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("Review");
+                    //Console.WriteLine($"username: {userName}");
                     return "1";
                 case "2":
                     return "2";

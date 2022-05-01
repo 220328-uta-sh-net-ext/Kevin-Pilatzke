@@ -18,8 +18,8 @@ namespace RestaurantBL
 
         public List<Restaurant> SearchRestaurant(string restaurantName)
         {
-            List<Restaurant> restaurant = repo.GetAllRestaurantsConnected();
-            var filteredRestaurants = restaurant.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
+            List<Restaurant> restaurants = repo.GetAllRestaurants();
+            var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
             return filteredRestaurants;
         }
     }

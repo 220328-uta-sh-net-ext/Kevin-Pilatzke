@@ -28,6 +28,42 @@ namespace RestaurantDL
             connection.Open();
             using IDataReader reader = command.ExecuteReader();
             var restaurants = new List<Restaurant>();
+            while (reader.Read())
+            {
+                restaurants.Add(new Restaurant
+                {
+                    RestaurantID = reader.GetInt32(0),
+                    RestaurantName = reader.GetString(1),
+                    City = reader.GetString(2),
+                    State = reader.GetString(3),
+                    ZipCode = reader.GetInt32(4)
+                });
+            }
+            return restaurants;
+        }
+        public List<Restaurant> GetAllRestaurants()
+        {
+            string commandString = "SELECT * FROM RestaurantInformation;";
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            connection.Open();
+            adapter.Fill(dataSet);
+            connection.Close();
+            var restaurants = new List<Restaurant>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                restaurants.Add(new Restaurant
+                {
+                    RestaurantID = (int)row[0],
+                    RestaurantName = (string)row[1],
+                    City = (string)row[2],
+                    State = (string)row[3],
+                    ZipCode = (int)row[4]
+
+                });
+            }
             return restaurants;
         }
 
