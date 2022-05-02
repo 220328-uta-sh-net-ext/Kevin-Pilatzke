@@ -53,7 +53,7 @@ namespace RestaurantUI
                             foreach (var r in results)
                             {
                                 Console.WriteLine("********************");
-                                Console.WriteLine(r.ToString);
+                                Console.WriteLine(r);
                             }
                         }
                         else

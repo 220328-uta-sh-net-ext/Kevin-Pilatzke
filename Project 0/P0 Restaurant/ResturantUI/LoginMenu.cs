@@ -38,6 +38,7 @@ namespace RestaurantUI
                     List<UserAcc> userResults = logic.GetUserAcc(userName);
                     if (userResults.Count > 0)
                     {
+                        backtopassword:
                         Console.WriteLine("Enter Password :");
                         var passWord = Console.ReadLine();
                         if (userResults[0].Password == passWord)
@@ -56,7 +57,7 @@ namespace RestaurantUI
                         else
                         {
                             Console.WriteLine($"Invaild Password for {userName}");
-                            goto case "1";
+                            goto backtopassword;
                         }
                     }
                     else

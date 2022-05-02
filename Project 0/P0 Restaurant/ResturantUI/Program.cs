@@ -36,7 +36,7 @@ while (repeat)
             break;
         case "Create New Account":
             Console.WriteLine("Heading to Create Account Menu!");
-            menu = new CreateAccMenu(repo);
+            menu = new CreateAccMenu(repo, logic);
             break;
         case "Main Menu":
             Console.WriteLine("Heading to Main Menu!");
