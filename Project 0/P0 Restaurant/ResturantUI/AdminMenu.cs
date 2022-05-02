@@ -25,6 +25,7 @@ namespace RestaurantUI
         {
             Console.WriteLine("**************************************");
             Console.WriteLine("Hello Admin!");
+            Console.WriteLine("**************************************");
             Console.WriteLine("Enter <1> to Search Users");
             Console.WriteLine("Enter <2> to Add Restaurant to Database");
             Console.WriteLine("Enter <0> to return to Main Menu");
@@ -42,6 +43,7 @@ namespace RestaurantUI
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("**************************************");
                     Console.WriteLine("Search Users");
                     string userName = Console.ReadLine();
                     userName = userName.Trim();
@@ -64,9 +66,8 @@ namespace RestaurantUI
                 ///Only Admin accounts will be able to add new restaurants, Basic users will be only able to search the restaurants
                 ///</summary>
                 case "2":
+                    Console.WriteLine("**************************************");
                     Console.WriteLine("Add Restaurant to Database");
-                    Console.WriteLine("Restaurant ID :");
-                    newRestaurant.RestaurantID = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Restaurant Name :");
                     newRestaurant.RestaurantName = Console.ReadLine();
                     Console.WriteLine("City Restaurant in : ");
@@ -76,10 +77,11 @@ namespace RestaurantUI
                     Console.WriteLine("Zip code of Restaurant location : ");
                     newRestaurant.ZipCode = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Adding Restaurant to Database");
-                    Log.Information("New Restaurant being added:" + newRestaurant.RestaurantID + newRestaurant.RestaurantName + newRestaurant.City + newRestaurant.State + newRestaurant.ZipCode);  
+                    Log.Information("New Restaurant being added:" + newRestaurant.RestaurantName + newRestaurant.City + newRestaurant.State + newRestaurant.ZipCode);  
                     repo.AddRestaurant(newRestaurant);
                     return "Admin Menu";
                 case "0":
+                    Console.WriteLine("**************************************");
                     return "Main Menu";
                 default:
                     Console.WriteLine("Enter a Valid Input");

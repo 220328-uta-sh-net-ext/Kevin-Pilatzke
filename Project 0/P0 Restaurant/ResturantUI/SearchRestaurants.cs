@@ -23,6 +23,7 @@ namespace RestaurantUI
         {
             Console.WriteLine("**************************************");
             Console.WriteLine("Searching Restaurants");
+            Console.WriteLine("**************************************");
             Console.WriteLine("Enter <1> List all Restaurants");
             Console.WriteLine("Enter <2> Search Restaurants by Name");
             Console.WriteLine("Enter <0> to return to Main Menu");
@@ -34,17 +35,19 @@ namespace RestaurantUI
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Showing all Restaurants");
+                    Console.WriteLine("**************************************");
+                    Console.WriteLine("Showing all Restaurants:");
                     List<Restaurant> allResults = repo.GetAllRestaurantsConnected();
                     foreach (var ar in allResults)
                     {
-                        Console.WriteLine("*************");
+                        Console.WriteLine("**************************************");
                         Console.WriteLine(ar);
                     }
                     
                     return "Search Restaurants";
                 case "2":
-                    Console.WriteLine("Search by Restaurant Name");
+                    Console.WriteLine("**************************************");
+                    Console.WriteLine("Search by Restaurant Name:");
                     string restaurantName = Console.ReadLine();
                     restaurantName = restaurantName.Trim();
                     List<Restaurant> results = logic.SearchRestaurant(restaurantName);
@@ -52,8 +55,8 @@ namespace RestaurantUI
                         {
                             foreach (var r in results)
                             {
-                                Console.WriteLine("********************");
-                                Console.WriteLine(r);
+                                Console.WriteLine("**************************************");
+                            Console.WriteLine(r);
                             }
                         }
                         else
@@ -62,6 +65,7 @@ namespace RestaurantUI
                         }
                 return "Search Restaurants";
                 case "0":
+                    Console.WriteLine("**************************************");
                     return "Main Menu";
                 default:
                     Console.WriteLine("Enter a Valid Input");

@@ -27,31 +27,24 @@ while (repeat)
     switch (ans)
     {
         case "Start Menu":
-            Console.WriteLine("Heading back to Start Menu!");
             menu = new StartMenu();
             break;
         case "Log in":
-            Console.WriteLine("Heading to Log in Menu!");
             menu = new LoginMenu(logic);
             break;
         case "Create New Account":
-            Console.WriteLine("Heading to Create Account Menu!");
             menu = new CreateAccMenu(repo, logic);
             break;
         case "Main Menu":
-            Console.WriteLine("Heading to Main Menu!");
             menu = new MainMenu();
             break;
         case "Search Restaurants":
-            Console.WriteLine("Heading to Search Restaurant Menu!");
             menu = new SearchRestaurants(logic, repo);
             break;
         case "Review and Rating":
-            Console.WriteLine("Heading to Review and Rating Menu!");
             menu = new ReviewRating(repo, logic);
             break;
         case "Admin Menu":
-            Console.WriteLine("Heading to Admin Menu!");
             menu = new AdminMenu(repo, logic);
             break;
         case "Exit":

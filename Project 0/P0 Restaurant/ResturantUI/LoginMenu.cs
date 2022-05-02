@@ -20,6 +20,7 @@ namespace RestaurantUI
         {
             Console.WriteLine("**************************************");
             Console.WriteLine("Please Log in with your Account");
+            Console.WriteLine("**************************************");
             Console.WriteLine("Press <1> to Login");
             Console.WriteLine("Press <0> for Start Menu");
 
@@ -32,6 +33,7 @@ namespace RestaurantUI
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("**************************************");
                     Console.WriteLine("Enter Username :");
                     var userName = Console.ReadLine();
 
@@ -66,7 +68,7 @@ namespace RestaurantUI
                         goto case "1";
                     }
                 case "0":
-                    Console.WriteLine("Heading back");
+                    Console.WriteLine("**************************************");
                     return "Start Menu";  
                 default:
                     Console.WriteLine("Please input a valid response");

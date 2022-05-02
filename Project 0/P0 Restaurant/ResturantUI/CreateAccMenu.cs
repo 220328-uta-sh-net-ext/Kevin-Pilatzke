@@ -25,6 +25,8 @@ namespace RestaurantUI
         public void Display()
         {
             Console.WriteLine("**************************************");
+            Console.WriteLine("Create a New Account!");
+            Console.WriteLine("**************************************");
             Console.WriteLine("Enter <1> to make New Username and Password (Limit to 20 characters)");
             Console.WriteLine("Enter <0> to return to Start Menu");
 
@@ -38,7 +40,7 @@ namespace RestaurantUI
                 case "1":
                     while (true)
                     {
-                        Console.WriteLine("*******************");
+                        Console.WriteLine("**************************************");
                         Console.WriteLine("Username: ");
                         newUser.Username = Console.ReadLine();
                         if (newUser.Username != "")
@@ -60,7 +62,6 @@ namespace RestaurantUI
                             goto case "1";
                         }
                         passwordlocation:
-                        Console.WriteLine("*******************");
                         Console.WriteLine("Password: ");
                         newUser.Password = Console.ReadLine();
                         if (newUser.Password != "")
@@ -87,7 +88,7 @@ namespace RestaurantUI
                         }
                     }
                 case "0":
-                    Console.WriteLine("Heading to Start Menu");
+                    Console.WriteLine("**************************************");
                     return "Start Menu";
                 default:
                     Console.WriteLine("Please Input a Valid Response");

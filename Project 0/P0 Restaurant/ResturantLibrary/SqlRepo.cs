@@ -151,11 +151,10 @@ namespace RestaurantDL
 
         public Restaurant AddRestaurant(Restaurant restaurant)
         {
-            string commandString = "INSERT INTO dbo.RestaurantInformation VALUES (@restaurantid, @restaurantname, @city, @state, @zipcode)";
+            string commandString = "INSERT INTO dbo.RestaurantInformation (RestaurantName, City, State, ZipCode) VALUES (@restaurantname, @city, @state, @zipcode)";
 
             using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            command.Parameters.AddWithValue("@restaurantid", restaurant.RestaurantID);
+            using SqlCommand command = new SqlCommand(commandString, connection);  
             command.Parameters.AddWithValue("@restaurantname", restaurant.RestaurantName);
             command.Parameters.AddWithValue("@city", restaurant.City);
             command.Parameters.AddWithValue("@state", restaurant.State);
