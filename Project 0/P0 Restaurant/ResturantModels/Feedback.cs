@@ -15,7 +15,7 @@ namespace RestaurantModels
 
         public override string ToString()
         {
-            string results = $"Username: {Username}\nRestaurant: {RestaurantName}\nRating: {Rating}\nReview: {Review}\n";
+            string results = RestaurantName;
             return results;
         }
     }

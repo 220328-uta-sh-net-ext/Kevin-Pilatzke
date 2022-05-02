@@ -23,6 +23,7 @@ namespace RestaurantUI
         }
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Hello Admin!");
             Console.WriteLine("Enter <1> to Search Users");
             Console.WriteLine("Enter <2> to Add Restaurant to Database");

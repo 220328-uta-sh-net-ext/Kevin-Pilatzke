@@ -10,6 +10,7 @@ namespace RestaurantUI
     {
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("Select catagory you wish to see");
             Console.WriteLine("Enter <1> Search Restaurants");

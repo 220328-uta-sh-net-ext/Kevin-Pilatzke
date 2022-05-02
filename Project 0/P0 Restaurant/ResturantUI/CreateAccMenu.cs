@@ -19,7 +19,8 @@ namespace RestaurantUI
             this.repo = repo;
         }
         public void Display()
-        { 
+        {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Enter <1> to make New Username and Password (Limit to 20 characters)");
             Console.WriteLine("Enter <0> to return to Start Menu");
 

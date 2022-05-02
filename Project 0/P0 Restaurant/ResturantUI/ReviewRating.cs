@@ -24,6 +24,7 @@ namespace RestaurantUI
          }
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Search and Place Reviews and Ratings");
             Console.WriteLine("Enter <1> to Place a Rating and Review");
             Console.WriteLine("Enter <2> to Look at Rating and Reviews");
@@ -50,11 +51,27 @@ namespace RestaurantUI
                     return "Review and Rating";
                 case "2":
                     Console.WriteLine("Enter the Restaurant Name");
-                    string restName = Console.ReadLine();
-                    restName = restName.Trim();
-                   
-
-                    return "Review and Rating";
+                    string restaurantName = Console.ReadLine();
+                    Console.WriteLine("**************************************");
+                    restaurantName = restaurantName.Trim();
+                    List<Feedback> restaurants = logic.GetRestaurant(restaurantName);
+                    if (restaurants.Count > 0)
+                    {
+                        for (int i = 0; i < restaurants.Count; i++)
+                        {
+                            foreach (var r in restaurants[0].Review)
+                            {                                
+                                Console.Write(r);
+                            }
+                            Console.WriteLine("\n**************************************");
+                        }         
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Restaurants with that name");
+                        goto case "2";
+                    }
+                return "Review and Rating";
                 case "0":
                     return "Main Menu";
                 default:

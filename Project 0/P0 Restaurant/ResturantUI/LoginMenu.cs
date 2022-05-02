@@ -18,6 +18,7 @@ namespace RestaurantUI
         }
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Please Log in with your Account");
             Console.WriteLine("Press <1> to Login");
             Console.WriteLine("Press <0> for Start Menu");
@@ -39,8 +40,6 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter Password :");
                         var passWord = Console.ReadLine();
-                        //List<UserAcc> passwordResults = logic.GetPassword(passWord);
-                        //if (passwordResults.Count > 0)
                         if (userResults[0].Password == passWord)
                         {
                             if (userResults[0].Access =="admin")

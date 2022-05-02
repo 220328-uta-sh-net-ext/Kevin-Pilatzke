@@ -21,6 +21,7 @@ namespace RestaurantUI
         }
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Searching Restaurants");
             Console.WriteLine("Enter <1> List all Restaurants");
             Console.WriteLine("Enter <2> Search Restaurants by Name");

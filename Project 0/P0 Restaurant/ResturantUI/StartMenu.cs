@@ -4,6 +4,7 @@
     {
         public void Display()
         {
+            Console.WriteLine("**************************************");
             Console.WriteLine("Welcome to the Resturant App!");
             Console.WriteLine("Enter <1> to make an account");
             Console.WriteLine("Enter <2> to Login");
