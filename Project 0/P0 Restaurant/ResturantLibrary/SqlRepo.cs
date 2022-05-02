@@ -81,6 +81,7 @@ namespace RestaurantDL
                 {
                     Username = reader.GetString(0),
                     Password = reader.GetString(1),
+                    Access = reader.GetString(2)
                 });                
             }
             return user;
@@ -101,20 +102,34 @@ namespace RestaurantDL
                 users.Add(new UserAcc
                 {
                     Username = (string)row[0],
-                    Password = (string)row[1]
+                    Password = (string)row[1],
+                    Access = (string)row[2]
                 });
             }
             return users;
         }
 
-        public List<Feedback> GetAllFeedbackConnected()
+        public List<Feedback> GetAllFeedback()
         {
             string commandString = "SELECT * FROM ReviewRating";
             using SqlConnection connection = new(connectionString);
-            using IDbCommand command = new SqlCommand(commandString, connection);
-            connection.Open();
-            using IDataReader reader = command.ExecuteReader();
+            using SqlCommand command = new SqlCommand(@commandString, connection);
+            IDataAdapter adapter1 = new SqlDataAdapter(command);
+            DataSet dataset = new();
+            connection.Open(0);
+            adapter1.Fill(dataset);
+            connection.Close();
             var feedback = new List<Feedback>();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                feedback.Add(new Feedback
+                {
+                Username = (string)row[0],
+                RestaurantName = (string)row[1],
+                Review = (string)row[2],
+                Rating = (int)row[3]
+                });
+            }
             return feedback;
         }
 

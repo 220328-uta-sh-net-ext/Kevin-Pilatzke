@@ -13,5 +13,8 @@ namespace RestaurantBL
         List<UserAcc> SearchUser(string userName);
         List<UserAcc> GetUserAcc(string userName);
         List<UserAcc> GetPassword(string passWord);
+
+        List<Feedback> GetRestaurant(string restaurantName);
+        List<Feedback> GetReview(string review);
     }
 }

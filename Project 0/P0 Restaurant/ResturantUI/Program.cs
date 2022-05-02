@@ -48,7 +48,7 @@ while (repeat)
             break;
         case "Review and Rating":
             Console.WriteLine("Heading to Review and Rating Menu!");
-            menu = new ReviewRating(repo);
+            menu = new ReviewRating(repo, logic);
             break;
         case "Admin Menu":
             Console.WriteLine("Heading to Admin Menu!");

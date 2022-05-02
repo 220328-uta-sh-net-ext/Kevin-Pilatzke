@@ -42,5 +42,19 @@ namespace RestaurantBL
             var filteredPasswords = passwords.Where(r => r.Password.ToLower().Equals(passWord)).ToList();
             return filteredPasswords;
         }
+
+        public List<Feedback> GetRestaurant(string restaurantName)
+        {
+            List<Feedback> restaurants = repo.GetAllFeedback();
+            var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
+            return filteredRestaurants;
+        }
+
+        public List<Feedback> GetReview(string review)
+        {
+            List<Feedback> reviews = repo.GetAllFeedback();
+            var filterReviews = reviews.Where(r => r.Review.ToLower().Equals(review)).ToList();
+            return filterReviews;
+        }
     }
 }

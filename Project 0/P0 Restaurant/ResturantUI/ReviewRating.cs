@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantBL;
 using RestaurantDL;
 using RestaurantModels;
 
@@ -13,11 +14,14 @@ namespace RestaurantUI
         private readonly Feedback newFeedback = new Feedback();
 
         readonly IRepo repo;
+        readonly IAccountLogic logic;
 
-        public ReviewRating(IRepo repo)
+        public ReviewRating(IRepo repo, IAccountLogic logic)
         {
             this.repo = repo;
-        }
+            this.logic = logic;
+
+         }
         public void Display()
         {
             Console.WriteLine("Search and Place Reviews and Ratings");
@@ -45,6 +49,11 @@ namespace RestaurantUI
                     repo.AddFeedback(newFeedback);                    
                     return "Review and Rating";
                 case "2":
+                    Console.WriteLine("Enter the Restaurant Name");
+                    string restName = Console.ReadLine();
+                    restName = restName.Trim();
+                   
+
                     return "Review and Rating";
                 case "0":
                     return "Main Menu";

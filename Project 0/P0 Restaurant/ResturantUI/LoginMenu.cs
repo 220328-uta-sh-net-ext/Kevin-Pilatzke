@@ -39,10 +39,11 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter Password :");
                         var passWord = Console.ReadLine();
-                        List<UserAcc> passwordResults = logic.GetPassword(passWord);
-                        if (passwordResults.Count > 0)
+                        //List<UserAcc> passwordResults = logic.GetPassword(passWord);
+                        //if (passwordResults.Count > 0)
+                        if (userResults[0].Password == passWord)
                         {
-                            if (userName =="admin" && passWord == "pass123")
+                            if (userResults[0].Access =="admin")
                             {
                                 Log.Information("Entering Admin Menu with: " + userName);
                                 return "Admin Menu";

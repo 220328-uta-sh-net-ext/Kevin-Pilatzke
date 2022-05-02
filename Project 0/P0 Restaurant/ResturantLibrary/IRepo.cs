@@ -16,7 +16,7 @@ namespace RestaurantDL
         List<Restaurant> GetAllRestaurants();
         List<UserAcc> GetAllUserAccConnected();
         List<UserAcc> GetAllUserAccs();
-        List<Feedback> GetAllFeedbackConnected();
+        List<Feedback> GetAllFeedback();
 
 
     }
