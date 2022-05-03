@@ -37,7 +37,7 @@ namespace RestaurantUI
                 case "1":
                     Console.WriteLine("**************************************");
                     Console.WriteLine("Showing all Restaurants:");
-                    List<Restaurant> allResults = repo.GetAllRestaurantsConnected();
+                    List<Restaurant> allResults = repo.GetAllRestaurants();
                     foreach (var ar in allResults)
                     {
                         Console.WriteLine("**************************************");

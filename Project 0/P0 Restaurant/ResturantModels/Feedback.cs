@@ -9,7 +9,7 @@ namespace RestaurantModels
     public class Feedback
     {
         public string Review { get; set; }
-        public int Rating { get; set; } 
+        public decimal Rating { get; set; } 
         public string Username { get; set; }
         public string RestaurantName { get; set; }
 

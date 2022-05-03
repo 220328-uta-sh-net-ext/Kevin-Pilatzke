@@ -19,29 +19,6 @@ namespace RestaurantDL
         {
             this.connectionString = connectionString;
         }
-
-        public List<Restaurant> GetAllRestaurantsConnected()
-        {
-            string commandString = "SELECT * FROM RestaurantInformation;";
-            using SqlConnection connection = new(connectionString);
-            using IDbCommand command = new SqlCommand(commandString, connection);
-            connection.Open();
-            using IDataReader reader = command.ExecuteReader();
-            var restaurants = new List<Restaurant>();
-            while (reader.Read())
-            {
-                restaurants.Add(new Restaurant
-                {
-                    RestaurantID = reader.GetInt32(0),
-                    RestaurantName = reader.GetString(1),
-                    City = reader.GetString(2),
-                    State = reader.GetString(3),
-                    ZipCode = reader.GetInt32(4),
-                    Details = reader.GetString(5)
-                });
-            }
-            return restaurants;
-        }
         public List<Restaurant> GetAllRestaurants()
         {
             string commandString = "SELECT * FROM RestaurantInformation;";
@@ -67,26 +44,6 @@ namespace RestaurantDL
                 });
             }
             return restaurants;
-        }
-
-        public List<UserAcc> GetAllUserAccConnected()
-        {
-            string commandString = "SELECT * FROM UserAccounts;";
-            using SqlConnection connection = new(connectionString);
-            using IDbCommand command = new SqlCommand(commandString, connection);
-            connection.Open();
-            using IDataReader reader = command.ExecuteReader();
-            var user = new List<UserAcc>();
-            while (reader.Read())
-            {
-                user.Add(new UserAcc
-                {
-                    Username = reader.GetString(0),
-                    Password = reader.GetString(1),
-                    Access = reader.GetString(2)
-                });                
-            }
-            return user;
         }
         public List<UserAcc> GetAllUserAccs()
         {
@@ -129,7 +86,7 @@ namespace RestaurantDL
                 Username = (string)row[0],
                 RestaurantName = (string)row[1],
                 Review = (string)row[2],
-                Rating = (int)row[3]
+                Rating = (decimal)row[3]
                 });
             }
             return feedback;

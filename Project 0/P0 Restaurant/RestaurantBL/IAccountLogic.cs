@@ -19,5 +19,6 @@ namespace RestaurantBL
 
         List<Feedback> GetRestaurant(string restaurantName);
         List<Feedback> GetReview(string review);
+        List<Feedback> GetRating(decimal rating);
     }
 }

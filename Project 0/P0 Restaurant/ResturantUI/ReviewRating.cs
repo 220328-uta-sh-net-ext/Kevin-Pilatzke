@@ -58,19 +58,29 @@ namespace RestaurantUI
                     Console.WriteLine("**************************************");
                     restaurantName = restaurantName.Trim();
                     List<Feedback> restaurants = logic.GetRestaurant(restaurantName);
+                    //List<Feedback> rating = logic.GetReview(restaurantName);
+                    decimal avgRating =0;
+                    decimal ratingLength = 0;
                     if (restaurants.Count > 0)
                     {
                         for (int i = 0; i < restaurants.Count; i++)
-                        {
+                        {   
+                            foreach (var rr in restaurants)
+                            {
+                                avgRating += rr.Rating;
+                                ratingLength++;
+                            }
+                            decimal allavgRating = Math.Round((avgRating / ratingLength),1);
                             Console.WriteLine($"Adding all Reviews for: '{restaurants[0].RestaurantName}'");
                             Console.WriteLine("**************************************");
-                            Console.WriteLine($"Username: {restaurants[0].Username}\t Rating: {restaurants[0].Rating}\nReview:");
-                            foreach (var r in restaurants[0].Review)
+                            Console.WriteLine($"Restaurant Name: {restaurants[0].RestaurantName}\tAverage Rating: {allavgRating}");                            
+                            Console.WriteLine($"Username: {restaurants[i].Username}\t Rating: {restaurants[i].Rating}\nReview:");
+                            foreach (var r in restaurants[i].Review)
                             {
                                 Console.Write(r);
                             }
                             Console.WriteLine("\n**************************************");
-                        }         
+                        }
                     }
                     else
                     {
