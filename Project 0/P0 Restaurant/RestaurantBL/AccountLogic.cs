@@ -15,13 +15,30 @@ namespace RestaurantBL
         {
             this.repo = repo;
         }
-        public List<Restaurant> SearchRestaurant(string restaurantName)
+        public List<Restaurant> SearchRName(string restaurantName)
         {
             List<Restaurant> restaurants = repo.GetAllRestaurants();
             var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
             return filteredRestaurants;
         }
-
+        public List<Restaurant> SearchRCity(string restaurantName)
+        {
+            List<Restaurant> restaurants = repo.GetAllRestaurants();
+            var filteredRestaurants = restaurants.Where(r => r.City.ToLower().Contains(restaurantName)).ToList();
+            return filteredRestaurants;
+        }
+        public List<Restaurant> SearchRState(string restaurantName)
+        {
+            List<Restaurant> restaurants = repo.GetAllRestaurants();
+            var filteredRestaurants = restaurants.Where(r => r.State.ToLower().Equals(restaurantName)).ToList();
+            return filteredRestaurants;
+        }
+        public List<Restaurant> SearchRZipcode(int restaurantName)
+        {
+            List<Restaurant> restaurants = repo.GetAllRestaurants();
+            var filteredRestaurants = restaurants.Where(r => r.ZipCode.Equals(restaurantName)).ToList();
+            return filteredRestaurants;
+        }
         public List<UserAcc> SearchUser(string userName)
         {
             List<UserAcc> users = repo.GetAllUserAccConnected();

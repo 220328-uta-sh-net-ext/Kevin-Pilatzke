@@ -9,7 +9,10 @@ namespace RestaurantBL
 {
     public interface IAccountLogic
     {
-        List<Restaurant> SearchRestaurant(string restaurantName);
+        List<Restaurant> SearchRName(string restaurantName);
+        List<Restaurant> SearchRCity(string restaurantName);
+        List<Restaurant> SearchRState(string restaurantName);
+        List<Restaurant> SearchRZipcode(int restaurantName);
         List<UserAcc> SearchUser(string userName);
         List<UserAcc> GetUserAcc(string userName);
         List<UserAcc> GetPassword(string passWord);

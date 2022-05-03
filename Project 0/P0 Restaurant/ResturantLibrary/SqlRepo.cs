@@ -36,7 +36,8 @@ namespace RestaurantDL
                     RestaurantName = reader.GetString(1),
                     City = reader.GetString(2),
                     State = reader.GetString(3),
-                    ZipCode = reader.GetInt32(4)
+                    ZipCode = reader.GetInt32(4),
+                    Details = reader.GetString(5)
                 });
             }
             return restaurants;
@@ -60,7 +61,8 @@ namespace RestaurantDL
                     RestaurantName = (string)row[1],
                     City = (string)row[2],
                     State = (string)row[3],
-                    ZipCode = (int)row[4]
+                    ZipCode = (int)row[4],
+                    Details = (string)row[5]    
 
                 });
             }
@@ -151,7 +153,7 @@ namespace RestaurantDL
 
         public Restaurant AddRestaurant(Restaurant restaurant)
         {
-            string commandString = "INSERT INTO dbo.RestaurantInformation (RestaurantName, City, State, ZipCode) VALUES (@restaurantname, @city, @state, @zipcode)";
+            string commandString = "INSERT INTO dbo.RestaurantInformation (RestaurantName, City, State, ZipCode, Details) VALUES (@restaurantname, @city, @state, @zipcode, @details)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);  
@@ -159,6 +161,7 @@ namespace RestaurantDL
             command.Parameters.AddWithValue("@city", restaurant.City);
             command.Parameters.AddWithValue("@state", restaurant.State);
             command.Parameters.AddWithValue("@zipcode", restaurant.ZipCode);
+            command.Parameters.AddWithValue("@details", restaurant.Details);
             connection.Open();
             command.ExecuteNonQuery();
 

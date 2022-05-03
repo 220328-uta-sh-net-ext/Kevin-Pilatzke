@@ -76,6 +76,8 @@ namespace RestaurantUI
                     newRestaurant.State = Console.ReadLine();
                     Console.WriteLine("Zip code of Restaurant location : ");
                     newRestaurant.ZipCode = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Information about Restaurant");
+                    newRestaurant.Details = Console.ReadLine();
                     Console.WriteLine("Adding Restaurant to Database");
                     Log.Information("New Restaurant being added:" + newRestaurant.RestaurantName + newRestaurant.City + newRestaurant.State + newRestaurant.ZipCode);  
                     repo.AddRestaurant(newRestaurant);

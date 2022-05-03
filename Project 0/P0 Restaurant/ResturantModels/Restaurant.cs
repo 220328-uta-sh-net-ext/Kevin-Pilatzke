@@ -9,6 +9,7 @@ namespace RestaurantModels
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+        public string Details { get; set; } 
 
         /// <summary>
         /// Need to set Overide here so when Searching it will properly display the information we are looking for.
@@ -17,7 +18,7 @@ namespace RestaurantModels
         /// <returns></returns>
         public override string ToString()
         {
-            string results = $"Name: {RestaurantName}\nCity: {City}\nState: {State}\nZipcode: {ZipCode}\n";
+            string results = $"Name: {RestaurantName}\nCity: {City}\nState: {State}\nZipcode: {ZipCode}\nDetails: {Details}";
             return results;
         }
     }
