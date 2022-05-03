@@ -40,25 +40,91 @@ namespace RestaurantUI
                 case "1":
                     Console.WriteLine("**************************************");
                     Console.WriteLine("Adding a new Review and Rating:");
+                    Console.WriteLine("Type <EXIT> at anypoint to return to Main Menu");
+                    username:
                     Console.WriteLine("Enter your Username:");
                     newFeedback.Username = Console.ReadLine();
+                    if (newFeedback.Username == "")
+                        {
+                            Console.WriteLine("Username can not be Blank");
+                            goto username;
+                        }
+                    if (newFeedback.Username == "EXIT")
+                        return "Main Menu";
+                    restaurant:
                     Console.WriteLine("Enter the Restaurant:");
                     newFeedback.RestaurantName = Console.ReadLine();
+                    if (newFeedback.RestaurantName == "")
+                        {
+                            Console.WriteLine("Restaurant can not be Blank");
+                            goto restaurant;
+                        }
+                    if (newFeedback.RestaurantName == "EXIT")
+                        return "Main Menu";
+                    rating:
                     Console.WriteLine("Enter a Rating (1-5):");
-                    newFeedback.Rating = Convert.ToInt32(Console.ReadLine());
+                    var input = Console.ReadLine();
+                    if (input == "")
+                    {
+                        Console.WriteLine("Rating can not be blank");
+                        goto rating;
+                    }
+                    if (input == "EXIT")
+                        return "Main Menu";
+                    else
+                    {
+                        try
+                        {
+                            decimal ratingValue = Convert.ToDecimal(input);
+                            newFeedback.Rating = ratingValue;
+                            if (newFeedback.Rating > 5 || newFeedback.Rating < 1)
+                            {
+                                Console.WriteLine("Rating must be between 1 and 5");
+                                goto rating;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Information(ex.ToString());
+                            Console.WriteLine("Make sure input is a valid interger");
+                            goto rating;
+                        }
+                    }
+                    review:
                     Console.WriteLine("Enter a Review (200 character limit):");
                     newFeedback.Review = Console.ReadLine();
+                    if (newFeedback.Review == "")
+                        {
+                            Console.WriteLine("Please write something for the review.");
+                            goto review;
+                        }
+                    if (newFeedback.Review == "EXIT")
+                        return "Main Menu";
                     Console.WriteLine("Adding Review and Rating");
+                    try
+                    {
+                        Log.Information($"Adding new Review for {newFeedback.RestaurantName} by {newFeedback.Username}");
+                        repo.AddFeedback(newFeedback);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Log.Error("Unable to Create Review, Reason: " + ex.Message);
+                    }
                     repo.AddFeedback(newFeedback);                    
                     return "Review and Rating";
                 case "2":
+                    ///<summary>
+                    ///For Case 2:
+                    ///This Option searches all restaurants with relating User input. If restaurant is found in search,
+                    ///all reviews will be posted for that restaurant. It will collect the average rating at the same time.
+                    /// </summary>
                     Console.WriteLine("**************************************");
                     Console.WriteLine("Enter the Restaurant Name:");
                     string restaurantName = Console.ReadLine();
                     Console.WriteLine("**************************************");
                     restaurantName = restaurantName.Trim();
                     List<Feedback> restaurants = logic.GetRestaurant(restaurantName);
-                    //List<Feedback> rating = logic.GetReview(restaurantName);
                     decimal avgRating =0;
                     decimal ratingLength = 0;
                     if (restaurants.Count > 0)

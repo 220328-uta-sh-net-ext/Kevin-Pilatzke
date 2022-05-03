@@ -51,7 +51,6 @@ while (repeat)
             Console.WriteLine("Thank you for using the Resturant App! Goodbye.");
             repeat = false;
             break;
-            Console.WriteLine();
         default:
             Console.WriteLine("View does not exist");
             continue;
