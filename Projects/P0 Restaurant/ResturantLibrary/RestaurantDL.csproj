@@ -16,4 +16,8 @@
     <ProjectReference Include="..\ResturantModels\RestaurantModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\" />
+  </ItemGroup>
+
 </Project>
