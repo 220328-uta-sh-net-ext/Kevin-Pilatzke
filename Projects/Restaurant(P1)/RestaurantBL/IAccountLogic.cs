@@ -9,16 +9,16 @@ namespace RestaurantBL
 {
     public interface IAccountLogic
     {
-        List<Restaurant> SearchRName(string restaurantName);
-        List<Restaurant> SearchRCity(string restaurantName);
-        List<Restaurant> SearchRState(string restaurantName);
-        List<Restaurant> SearchRZipcode(int restaurantName);
-        List<UserAcc> SearchUser(string userName);
-        List<UserAcc> GetUserAcc(string userName);
-        List<UserAcc> GetPassword(string passWord);
+        Task<List<Restaurant>> SearchRName(string restaurantName);
+        Task<List<Restaurant>> SearchRCity(string restaurantName);
+        Task<List<Restaurant>> SearchRState(string restaurantName);
+        Task<List<Restaurant>> SearchRZipcode(int restaurantName);
+        Task<List<UserAcc>> SearchUser(string userName);
+        Task<List<UserAcc>> GetUserAcc(string userName);
+        Task<List<UserAcc>> GetPassword(string passWord);
 
-        List<Feedback> GetRestaurant(string restaurantName);
-        List<Feedback> GetReview(string review);
-        List<Feedback> GetRating(decimal rating);
+        Task<List<Feedback>> GetRestaurant(string restaurantName);
+        Task<List<Feedback>> GetReview(string review);
+        Task<List<Feedback>> GetRating(decimal rating);
     }
 }

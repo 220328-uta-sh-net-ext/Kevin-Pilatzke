@@ -37,7 +37,7 @@ namespace RestaurantUI
                 case "1":
                     Console.WriteLine("**************************************");
                     Console.WriteLine("Showing all Restaurants:");
-                    List<Restaurant> allResults = repo.GetAllRestaurants();
+                    List<Restaurant> allResults = null; // repo.GetAllRestaurantsAsync();
                     foreach (var ar in allResults)
                     {
                         Console.WriteLine("**************************************");
@@ -55,7 +55,7 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter Name of Restaurant");
                         string restaurantName = Console.ReadLine().Trim();
-                        List<Restaurant> nResults = logic.SearchRName(restaurantName);
+                        List<Restaurant> nResults = null; // logic.SearchRName(restaurantName);
                         if (nResults.Count > 0)
                         {
                             foreach (var n in nResults)
@@ -76,7 +76,7 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter City of Restaurant");
                         string restaurantName = Console.ReadLine().Trim();
-                        List<Restaurant> cResults = logic.SearchRCity(restaurantName);
+                        List<Restaurant> cResults = null; // logic.SearchRCity(restaurantName);
                         if (cResults.Count > 0)
                         {
                             foreach (var c in cResults)
@@ -97,7 +97,7 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter the State where Restaurant is (Use Ex: CO to search Colorado");
                         string restaurantName = Console.ReadLine().ToLower().Trim();
-                        List<Restaurant> sResults = logic.SearchRState(restaurantName);
+                        List<Restaurant> sResults = null; // logic.SearchRState(restaurantName);
                         if (sResults.Count > 0)
                         {
                             foreach (var s in sResults)
@@ -118,7 +118,7 @@ namespace RestaurantUI
                     {
                         Console.WriteLine("Enter the Zipcode of Restaurant");
                         int restaurantName = int.Parse(Console.ReadLine());
-                        List<Restaurant> zResults = logic.SearchRZipcode(restaurantName);
+                        List<Restaurant> zResults = null; //logic.SearchRZipcode(restaurantName);
                         if (zResults.Count > 0)
                         {
                             foreach (var z in zResults)

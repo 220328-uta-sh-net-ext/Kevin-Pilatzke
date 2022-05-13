@@ -45,7 +45,7 @@ namespace RestaurantUI
                         newUser.Username = Console.ReadLine();
                         if (newUser.Username != "")
                         {
-                            List<UserAcc> accList = logic.GetUserAcc(newUser.Username);
+                            List<UserAcc> accList = null; // logic.GetUserAcc(newUser.Username);
                             foreach (var acc in accList)
                             {
                                 if (acc.Username == newUser.Username)

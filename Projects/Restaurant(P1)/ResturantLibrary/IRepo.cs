@@ -12,9 +12,9 @@ namespace RestaurantDL
         UserAcc AddUser(UserAcc user);
         Restaurant AddRestaurant(Restaurant restaurant);
         Feedback AddFeedback(Feedback feedback);
-        List<Restaurant> GetAllRestaurants();
-        List<UserAcc> GetAllUserAccs();
-        List<Feedback> GetAllFeedback();
+        Task<List<Restaurant>> GetAllRestaurantsAsync();
+        Task<List<UserAcc>> GetAllUserAccsAsync();
+        Task<List<Feedback>> GetAllFeedbackAsync();
 
 
     }

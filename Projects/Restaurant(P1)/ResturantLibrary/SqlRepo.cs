@@ -19,16 +19,26 @@ namespace RestaurantDL
         {
             this.connectionString = connectionString;
         }
-        public List<Restaurant> GetAllRestaurants()
+        public async Task<List<Restaurant>> GetAllRestaurantsAsync()
         {
             string commandString = "SELECT * FROM RestaurantInformation;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             IDataAdapter adapter = new SqlDataAdapter(command);
             DataSet dataSet = new();
-            connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
+            try
+            {
+                await connection.OpenAsync();
+                adapter.Fill(dataSet);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
             var restaurants = new List<Restaurant>();
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
@@ -45,16 +55,26 @@ namespace RestaurantDL
             }
             return restaurants;
         }
-        public List<UserAcc> GetAllUserAccs()
+        public async Task<List<UserAcc>> GetAllUserAccsAsync()
         {
             string commandString = "SELECT * FROM UserAccounts;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             IDataAdapter adapter = new SqlDataAdapter(command);
             DataSet dataSet = new();
-            connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
+            try
+            {
+                await connection.OpenAsync();
+                adapter.Fill(dataSet);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }            
             var users = new List<UserAcc>();
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
@@ -68,16 +88,26 @@ namespace RestaurantDL
             return users;
         }
 
-        public List<Feedback> GetAllFeedback()
+        public async Task<List<Feedback>> GetAllFeedbackAsync()
         {
             string commandString = "SELECT * FROM ReviewRating";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(@commandString, connection);
             IDataAdapter adapter1 = new SqlDataAdapter(command);
             DataSet dataset = new();
-            connection.Open(0);
-            adapter1.Fill(dataset);
-            connection.Close();
+            try
+            {
+                await connection.OpenAsync();
+                adapter1.Fill(dataset);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }            
             var feedback = new List<Feedback>();
             foreach (DataRow row in dataset.Tables[0].Rows)
             {

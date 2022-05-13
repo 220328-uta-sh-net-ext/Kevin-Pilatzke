@@ -123,7 +123,7 @@ namespace RestaurantUI
                     Console.WriteLine("Enter the Restaurant Name:");
                     string restaurantName = Console.ReadLine().Trim();
                     Console.WriteLine("**************************************");
-                    List<Feedback> restaurants = logic.GetRestaurant(restaurantName);
+                    List<Feedback> restaurants = null; // logic.GetRestaurant(restaurantName);
                     decimal avgRating =0;
                     decimal ratingLength = 0;
                     if (restaurants.Count > 0)

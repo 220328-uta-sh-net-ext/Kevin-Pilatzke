@@ -37,7 +37,7 @@ namespace RestaurantUI
                     Console.WriteLine("Enter Username :");
                     var userName = Console.ReadLine();
 
-                    List<UserAcc> userResults = logic.GetUserAcc(userName);
+                    List<UserAcc> userResults = null;//logic.GetUserAcc(userName);
                     if (userResults.Count > 0)
                     {
                         backtopassword:

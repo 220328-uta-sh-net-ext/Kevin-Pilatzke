@@ -47,7 +47,7 @@ namespace RestaurantUI
                     Console.WriteLine("Search Users");
                     string userName = Console.ReadLine();
                     userName = userName.Trim();
-                    List<UserAcc> results = logic.SearchUser(userName);
+                    List<UserAcc> results = null; // logic.SearchUser(userName);
                     if (results.Count > 0)
                     {
                         foreach (var r in results)
