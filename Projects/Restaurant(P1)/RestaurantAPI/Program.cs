@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager Config = builder.Configuration;
 
-builder.Services.AddAuthentication(options => {
+/*builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
@@ -25,7 +25,7 @@ builder.Services.AddAuthentication(options => {
         ValidateIssuer = false,
         ValidateAudience = false
     };
-});
+});*/
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers(options =>
     options.RespectBrowserAcceptHeader = true
@@ -36,7 +36,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IRepo>(repo => new SqlRepo(Config.GetConnectionString("RestaurantDb")));
+builder.Services.AddScoped<IRepo>(repo => new SqlRepo(Config.GetConnectionString("Database")));
 builder.Services.AddScoped<IAccountLogic, AccountLogic>();
 
 var app = builder.Build();

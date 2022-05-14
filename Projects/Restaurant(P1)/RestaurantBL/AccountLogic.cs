@@ -86,7 +86,7 @@ namespace RestaurantBL
         public async Task<List<Feedback>> GetRestaurant(string restaurantName)
         {
             List<Feedback> restaurants = await repo.GetAllFeedbackAsync();
-            var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(restaurantName)).ToList();
+            var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(restaurantName.ToLower())).ToList();
             return filteredRestaurants;
         }
         /// <summary>
