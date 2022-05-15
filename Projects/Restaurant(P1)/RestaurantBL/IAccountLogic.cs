@@ -20,5 +20,7 @@ namespace RestaurantBL
         Task<List<Feedback>> GetRestaurant(string restaurantName);
         Task<List<Feedback>> GetReview(string review);
         Task<List<Feedback>> GetRating(decimal rating);
+        //Task<bool> AuthenticateUser(UserAcc user);
+        bool AuthUser(UserAcc user);
     }
 }

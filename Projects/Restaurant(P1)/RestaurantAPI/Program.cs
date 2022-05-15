@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using RestaurantAPI.JWTRepo;
 using RestaurantBL;
 using RestaurantDL;
 using System.Text;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager Config = builder.Configuration;
 
-/*builder.Services.AddAuthentication(options => {
+builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
@@ -25,7 +26,7 @@ ConfigurationManager Config = builder.Configuration;
         ValidateIssuer = false,
         ValidateAudience = false
     };
-});*/
+});
 builder.Services.AddMemoryCache();
 builder.Services.AddControllers(options =>
     options.RespectBrowserAcceptHeader = true
@@ -38,6 +39,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRepo>(repo => new SqlRepo(Config.GetConnectionString("Database")));
 builder.Services.AddScoped<IAccountLogic, AccountLogic>();
+builder.Services.AddScoped<IJWTRepo, JWTRepo>();
 
 var app = builder.Build();
 

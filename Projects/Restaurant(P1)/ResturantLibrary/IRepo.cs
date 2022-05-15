@@ -15,6 +15,7 @@ namespace RestaurantDL
         Task<List<Restaurant>> GetAllRestaurantsAsync();
         Task<List<UserAcc>> GetAllUserAccsAsync();
         Task<List<Feedback>> GetAllFeedbackAsync();
+        List<UserAcc> GetAllUserAccs();
 
 
     }

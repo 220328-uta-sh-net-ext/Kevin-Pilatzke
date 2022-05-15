@@ -29,6 +29,10 @@ namespace RestaurantAPI.Controllers
             try
             {
                 usernames = await logic.SearchUser(Username);
+                if(usernames.Count <= 0)
+                {
+                    return NotFound($"No users with the name {Username}.");
+                }
             }
             catch (SqlException ex)
             {

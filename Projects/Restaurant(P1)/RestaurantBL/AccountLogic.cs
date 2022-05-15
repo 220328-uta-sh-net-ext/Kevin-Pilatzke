@@ -2,19 +2,24 @@
 using RestaurantModels;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace RestaurantBL
 {
     public class AccountLogic : IAccountLogic
     {
         readonly IRepo repo;
+
         public AccountLogic(IRepo repo)
         {
             this.repo = repo;
         }
+
         /// <summary>
         /// To make a functional Search Restaurant that utilizes all forms of search parameters,
         /// A Search by each type was built for Restaurant Name and City/State/Zipcode of Restaurant location.
@@ -110,6 +115,24 @@ namespace RestaurantBL
             List<Feedback> ratings = await repo.GetAllFeedbackAsync();
             var filterRatings = ratings.Where(r => r.Rating.Equals(rating)).ToList();
             return filterRatings;
+        }
+        /*public async Task<bool> AuthenticateUser(UserAcc user)
+        {
+            List<UserAcc> users = await repo.GetAllUserAccsAsync();
+            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password && u.Access == user.Access))
+            {
+                return true;
+            }
+            return false;
+        }*/
+        public bool AuthUser(UserAcc user)
+        {
+            List<UserAcc> users = repo.GetAllUserAccs();
+            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password && u.Access == user.Access))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

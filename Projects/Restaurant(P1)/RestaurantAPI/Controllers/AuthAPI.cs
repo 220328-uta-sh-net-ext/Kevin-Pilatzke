@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using RestaurantAPI.JWTRepo;
 using RestaurantBL;
 using RestaurantDL;
+using RestaurantModels;
 
 namespace RestaurantAPI.Controllers
 {
@@ -11,8 +14,8 @@ namespace RestaurantAPI.Controllers
     {
         private IAccountLogic logic;
         private IMemoryCache memoryCache;
-        private IRepo repo;
-        public AuthAPI(IAccountLogic logic, IMemoryCache memoryCache, IRepo repo)
+        private IJWTRepo repo;
+        public AuthAPI(IAccountLogic logic, IMemoryCache memoryCache, IJWTRepo repo)
         {
             this.logic = logic;
             this.memoryCache = memoryCache;
@@ -21,6 +24,16 @@ namespace RestaurantAPI.Controllers
         //[HttpPost("Create Account")]
         //[ProducesResponseType(201)]
         //[ProducesResponseType(400)]
-        //[HttpPost("Log in")]
+        [AllowAnonymous]
+        [HttpPost("Log in")]
+        public IActionResult Authenticate([FromQuery]UserAcc user)
+        {
+            var auth = repo.AuthUser(user);
+            if (auth == null)
+            {
+                return BadRequest("Incorrect Log in Credentials");
+            }
+            return Ok(auth);
+        }
     }
 }

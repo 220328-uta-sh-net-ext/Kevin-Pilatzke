@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using RestaurantModels;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace RestaurantDL
 {
@@ -75,6 +78,38 @@ namespace RestaurantDL
             {
                 connection.Close();
             }            
+            var users = new List<UserAcc>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                users.Add(new UserAcc
+                {
+                    Username = (string)row[0],
+                    Password = (string)row[1],
+                    Access = (string)row[2]
+                });
+            }
+            return users;
+        }
+        public List<UserAcc> GetAllUserAccs()
+        {
+            string commandString = "SELECT * FROM UserAccounts;";
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
             var users = new List<UserAcc>();
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
@@ -168,5 +203,9 @@ namespace RestaurantDL
 
             return user;
         }
+        //public Tokens Authenticate(UserAcc user)
+        //{
+        //    if ()
+        //}
     }
 }
