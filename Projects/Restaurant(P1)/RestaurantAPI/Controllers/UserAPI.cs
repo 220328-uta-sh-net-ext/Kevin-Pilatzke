@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Caching.Memory;
 using RestaurantBL;
@@ -21,6 +22,7 @@ namespace RestaurantAPI.Controllers
             this.memoryCache = memoryCache;
             this.repo = repo;
         }
+        [AllowAnonymous]
         [HttpGet("Search All Restaurants")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -45,10 +47,11 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        [AllowAnonymous]
         [HttpGet("Search Restaurant by Name")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantName(string RestaurantName)
+        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantName([BindRequired]string RestaurantName)
         {
             List<Restaurant> restaurants = new List<Restaurant>();
             try
@@ -69,10 +72,11 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        [AllowAnonymous]
         [HttpGet("Search Restaurant by City")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantCity(string City)
+        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantCity([BindRequired]string City)
         {
             List<Restaurant> restaurants = new List<Restaurant>();
             try
@@ -93,10 +97,11 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        [AllowAnonymous]
         [HttpGet("Search Restaurant by State")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantState(string State)
+        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantState([BindRequired]string State)
         {
             List<Restaurant> restaurants = new List<Restaurant>();
             try
@@ -117,10 +122,11 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        [AllowAnonymous]
         [HttpGet("Search Restaurant by Zipcode")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantZipcode(int zipcode)
+        public async Task<ActionResult<List<Restaurant>>> SearchRestaurantZipcode([BindRequired]int zipcode)
         {
             List<Restaurant> restaurants = new List<Restaurant>();
             try
@@ -141,22 +147,23 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        /*[AllowAnonymous]
         [HttpGet("Search All Reviews by Restaurant")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<Feedback>>> GetAllReviewsByRestaurant(string restaurantName)
+        public async Task<IActionResult> GetAllReviewsByRestaurant(string restaurantName)
         {
-            List<Feedback> restaurantReviews = new List<Feedback>();
+            List<Feedback> restaurants = new List<Feedback>();
             try
             {
-                restaurantReviews = await logic.GetRestaurant(restaurantName);
-                if (restaurantReviews.Count > 0)
+                restaurants = await logic.GetRestaurant(restaurantName);
+                if (restaurants.Count > 0)
                 {
-                    foreach (var reviewList in restaurantReviews)
-                    {
+                    foreach (var reviewList in restaurants)
+                    { 
                         return Ok($"Restaurant: {reviewList.RestaurantName}\nCustomer: {reviewList.Username}\nRating: {reviewList.Rating}\nReview: {reviewList.Review}.");
                     }
-                }                    
+                }
                 return NotFound($"No Reviews for Restaurant {restaurantName}.");
             }
             catch (SqlException ex)
@@ -167,10 +174,54 @@ namespace RestaurantAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }*/
+        [AllowAnonymous]
+        [HttpGet("Search All Reviews by Restaurant")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetAllReviewsByRestaurant([BindRequired]string restaurantName)
+        {
+            List<Feedback> restaurants = new List<Feedback>();
+            try
+            {
+                restaurants = await logic.GetRestaurant(restaurantName);
+                if (restaurants.Count <= 0)
+                {
+                    return NotFound($"No Reviews for Restaurant {restaurantName}.");
+                }
+
+                return Ok(restaurants);
+                }
+            catch (SqlException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-        //[Authorize]
-        //[HttpPost("Add a Review")]
-        //[ProducesResponseType(201)]
-        //[ProducesResponseType(400)]
+        [Authorize]
+        [HttpPost("Add a Review")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        public ActionResult AddNewReview([FromQuery]string restaurantName, string review, decimal rating)
+        {
+            var user = User.Identity.Name;
+            Feedback newReview = new Feedback();
+            newReview.Username = user;
+            newReview.RestaurantName = restaurantName;
+            newReview.Rating = rating;
+            newReview.Review = review;
+            try
+            {
+                repo.AddFeedback(newReview);
+                return CreatedAtAction("GetAllReviewsByRestaurant", newReview);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

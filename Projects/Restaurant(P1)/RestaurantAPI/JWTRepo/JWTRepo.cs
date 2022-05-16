@@ -53,7 +53,7 @@ namespace RestaurantAPI.JWTRepo
                     new Claim[]
                     {
                         new Claim(ClaimTypes.Name, user.Username),
-                        new Claim(ClaimTypes.Role, Convert.ToString(user.Username))
+                        new Claim(ClaimTypes.Role, user.Access)
                     }),
                 Expires = DateTime.UtcNow.AddMinutes(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenkey), SecurityAlgorithms.HmacSha256),

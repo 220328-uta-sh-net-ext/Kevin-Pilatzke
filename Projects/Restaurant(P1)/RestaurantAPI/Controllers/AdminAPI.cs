@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Caching.Memory;
 using RestaurantBL;
@@ -20,10 +22,11 @@ namespace RestaurantAPI.Controllers
             this.memoryCache = memoryCache;
             this.repo = repo;
         }
+        [Authorize(Roles = "admin")]
         [HttpGet("Search Users by Name")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public async Task<ActionResult<List<UserAcc>>> SearchAllUsers(string Username)
+        public async Task<ActionResult<List<UserAcc>>> SearchAllUsers([BindRequired]string Username)
         {
             List<UserAcc> usernames = new List<UserAcc>();
             try

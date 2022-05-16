@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Caching.Memory;
 using RestaurantAPI.JWTRepo;
 using RestaurantBL;
@@ -15,18 +17,37 @@ namespace RestaurantAPI.Controllers
         private IAccountLogic logic;
         private IMemoryCache memoryCache;
         private IJWTRepo repo;
-        public AuthAPI(IAccountLogic logic, IMemoryCache memoryCache, IJWTRepo repo)
+        private IRepo sqlrepo;
+        public AuthAPI(IAccountLogic logic, IMemoryCache memoryCache, IJWTRepo repo, IRepo sqlrepo)
         {
             this.logic = logic;
             this.memoryCache = memoryCache;
             this.repo = repo;
+            this.sqlrepo = sqlrepo;
         }
-        //[HttpPost("Create Account")]
-        //[ProducesResponseType(201)]
-        //[ProducesResponseType(400)]
         [AllowAnonymous]
-        [HttpPost("Log in")]
-        public IActionResult Authenticate([FromQuery]UserAcc user)
+        [HttpPost("Create Account")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+
+        public ActionResult AddNewAccount([FromQuery][BindRequired] string Username, string Password)
+        {
+            UserAcc newUser = new UserAcc();
+            newUser.Username = Username;
+            newUser.Password = Password;
+            try
+            {
+                sqlrepo.AddUser(newUser);
+                return CreatedAtAction("AddNewAccount", newUser);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+        [AllowAnonymous]
+        [HttpPost("Auth Token")]
+        public IActionResult Authenticate([FromQuery][BindRequired]UserAcc user)
         {
             var auth = repo.AuthUser(user);
             if (auth == null)

@@ -203,9 +203,5 @@ namespace RestaurantDL
 
             return user;
         }
-        //public Tokens Authenticate(UserAcc user)
-        //{
-        //    if ()
-        //}
     }
 }
