@@ -7,6 +7,7 @@ using RestaurantAPI.JWTRepo;
 using RestaurantBL;
 using RestaurantDL;
 using RestaurantModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantAPI.Controllers
 {
@@ -30,7 +31,7 @@ namespace RestaurantAPI.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
 
-        public ActionResult AddNewAccount([FromQuery][BindRequired] string Username, string Password)
+        public ActionResult AddNewAccount([FromQuery][BindRequired]string Username,[BindRequired][DataType(DataType.Password)]string Password)
         {
             UserAcc newUser = new UserAcc();
             newUser.Username = Username;
@@ -47,7 +48,7 @@ namespace RestaurantAPI.Controllers
         }
         [AllowAnonymous]
         [HttpPost("Auth Token")]
-        public IActionResult Authenticate([FromQuery][BindRequired]UserAcc user)
+        public IActionResult Authenticate([FromQuery]UserAcc user)
         {
             var auth = repo.AuthUser(user);
             if (auth == null)

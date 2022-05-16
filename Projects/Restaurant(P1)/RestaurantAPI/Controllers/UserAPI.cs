@@ -205,7 +205,7 @@ namespace RestaurantAPI.Controllers
         [HttpPost("Add a Review")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult AddNewReview([FromQuery]string restaurantName, string review, decimal rating)
+        public ActionResult AddNewReview([FromQuery][BindRequired]string restaurantName,[BindRequired]string review,[BindRequired]decimal rating)
         {
             var user = User.Identity.Name;
             Feedback newReview = new Feedback();
