@@ -13,6 +13,7 @@ namespace RestaurantBL
         Task<List<Restaurant>> SearchRCity(string restaurantName);
         Task<List<Restaurant>> SearchRState(string restaurantName);
         Task<List<Restaurant>> SearchRZipcode(int restaurantName);
+        Task<List<Restaurant>> SearchAllRestaurants(string RestaurantName);
         Task<List<UserAcc>> SearchUser(string userName);
         Task<List<UserAcc>> GetUserAcc(string userName);
         Task<List<UserAcc>> GetPassword(string passWord);

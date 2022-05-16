@@ -50,12 +50,18 @@ namespace RestaurantBL
             var filteredRestaurants = restaurants.Where(r => r.ZipCode.Equals(Zipcode)).ToList();
             return filteredRestaurants;
         }
-        /// <summary>
-        /// Used to search the user list from the database by Admin account
-        /// </summary>
-        /// <param name="userName"></param>
-        /// <returns>All users that contains that input</returns>
-        public async Task<List<UserAcc>> SearchUser(string userName)
+        public async Task<List<Restaurant>> SearchAllRestaurants(string RestaurantName)
+        {
+            List<Restaurant> restaurants = await repo.GetAllRestaurantsAsync();
+            var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Trim().Equals(RestaurantName.ToLower().Trim())).ToList();
+            return filteredRestaurants;
+        }
+            /// <summary>
+            /// Used to search the user list from the database by Admin account
+            /// </summary>
+            /// <param name="userName"></param>
+            /// <returns>All users that contains that input</returns>
+            public async Task<List<UserAcc>> SearchUser(string userName)
         {
             List<UserAcc> users = await repo.GetAllUserAccsAsync();
             var filteredUsers = users.Where(r => r.Username.ToLower().Contains(userName.ToLower())).ToList();

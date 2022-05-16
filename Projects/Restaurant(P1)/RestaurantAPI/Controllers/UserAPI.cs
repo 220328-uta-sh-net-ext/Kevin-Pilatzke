@@ -205,20 +205,38 @@ namespace RestaurantAPI.Controllers
         [HttpPost("Add a Review")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult AddNewReview([FromQuery][BindRequired]string restaurantName,[BindRequired]string review,[BindRequired]decimal rating)
+        public async Task<ActionResult> AddNewReview([FromQuery][BindRequired]string restaurantName,[BindRequired]string review,[BindRequired]decimal rating)
         {
-            var user = User.Identity.Name;
+            List<Restaurant> newList = new List<Restaurant>();
+            newList = await logic.SearchAllRestaurants(restaurantName);
+            if (newList.Count <=0)
+            {
+                return BadRequest("Please make sure you use the exact name of Restaurant from App List");
+            }
             Feedback newReview = new Feedback();
+            var user = User.Identity.Name;
             newReview.Username = user;
             newReview.RestaurantName = restaurantName;
             newReview.Rating = rating;
             newReview.Review = review;
+            if(rating < 1 || rating > 5)
+            {
+                return BadRequest("Value must be between 1 and 5");
+            }
+            if(review.Length > 200)
+            {
+                return BadRequest("Review can only be 200 characters");
+            }
             try
             {
                 repo.AddFeedback(newReview);
                 return CreatedAtAction("GetAllReviewsByRestaurant", newReview);
             }
             catch (SqlException ex)
+            {
+                return BadRequest(ex);
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex);
             }
