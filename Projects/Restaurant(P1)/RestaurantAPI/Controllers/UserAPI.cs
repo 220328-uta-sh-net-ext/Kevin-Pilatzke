@@ -22,8 +22,13 @@ namespace RestaurantAPI.Controllers
             this.memoryCache = memoryCache;
             this.repo = repo;
         }
+        /// <summary>
+        /// See List of All Restaurants in Database
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search All Restaurants")]
+        [HttpGet]
+        [Route("All/Restaurants")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<Restaurant>>> GetAllRestaurants()
@@ -47,8 +52,14 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        /// <summary>
+        /// Search All Restaurants by Restaurant Name
+        /// </summary>
+        /// <param name="RestaurantName"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search Restaurant by Name")]
+        [HttpGet]
+        [Route("SearchRestaurant/Name")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<Restaurant>>> SearchRestaurantName([BindRequired]string RestaurantName)
@@ -72,8 +83,14 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        /// <summary>
+        /// Search All Restaurants by City
+        /// </summary>
+        /// <param name="City"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search Restaurant by City")]
+        [HttpGet]
+        [Route("SearchRestaurant/City")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<Restaurant>>> SearchRestaurantCity([BindRequired]string City)
@@ -97,8 +114,14 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        /// <summary>
+        /// Search All Restaurants by State
+        /// </summary>
+        /// <param name="State"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search Restaurant by State")]
+        [HttpGet]
+        [Route("SearchRestaurant/State")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<Restaurant>>> SearchRestaurantState([BindRequired]string State)
@@ -122,8 +145,14 @@ namespace RestaurantAPI.Controllers
             }
             return Ok(restaurants);
         }
+        /// <summary>
+        /// Search All Restaurants by Zipcode 
+        /// </summary>
+        /// <param name="zipcode"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search Restaurant by Zipcode")]
+        [HttpGet]
+        [Route("SearchRestaurant/Zipcode")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<Restaurant>>> SearchRestaurantZipcode([BindRequired]int zipcode)
@@ -175,8 +204,14 @@ namespace RestaurantAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }*/
+        /// <summary>
+        /// Search All Reviews by Restaurant
+        /// </summary>
+        /// <param name="restaurantName"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpGet("Search All Reviews by Restaurant")]
+        [HttpGet]
+        [Route("ReviewSearch")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetAllReviewsByRestaurant([BindRequired]string restaurantName)
@@ -201,8 +236,16 @@ namespace RestaurantAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        /// <summary>
+        /// Add a Review to a Restaurant
+        /// </summary>
+        /// <param name="restaurantName"></param>
+        /// <param name="review"></param>
+        /// <param name="rating"></param>
+        /// <returns></returns>
         [Authorize]
-        [HttpPost("Add a Review")]
+        [HttpPost]
+        [Route("ReviewAdd")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public async Task<ActionResult> AddNewReview([FromQuery][BindRequired]string restaurantName,[BindRequired]string review,[BindRequired]decimal rating)

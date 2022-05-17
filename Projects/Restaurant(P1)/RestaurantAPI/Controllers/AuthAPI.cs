@@ -26,11 +26,17 @@ namespace RestaurantAPI.Controllers
             this.repo = repo;
             this.sqlrepo = sqlrepo;
         }
+        /// <summary>
+        /// Create a New Account to Login with
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpPost("Create Account")]
+        [HttpPost]
+        [Route("Add/Account")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-
         public async Task<ActionResult> AddNewAccount([FromQuery][BindRequired]string Username,[BindRequired][DataType(DataType.Password)]string Password)
         {
             List<UserAcc> newList = new List<UserAcc>();
@@ -52,8 +58,14 @@ namespace RestaurantAPI.Controllers
                 return BadRequest(ex);
             }
         }
+        /// <summary>
+        /// Aquire Bearer token by logging in with credentials. [Access = any value] [Authorize at top with token [Value: Bearer 'add token']
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [AllowAnonymous]
-        [HttpPost("Auth Token")]
+        [HttpPost]
+        [Route("Authenticate/User")]
         public IActionResult Authenticate([FromQuery]UserAcc user)
         {
             var auth = repo.AuthUser(user);

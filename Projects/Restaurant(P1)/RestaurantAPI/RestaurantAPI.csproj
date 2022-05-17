@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>3769cbc8-b658-47ff-ab2a-8338b2501d00</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,5 +28,4 @@
     <ProjectReference Include="..\RestaurantBL\RestaurantBL.csproj" />
     <ProjectReference Include="..\ResturantLibrary\RestaurantDL.csproj" />
   </ItemGroup>
-
 </Project>

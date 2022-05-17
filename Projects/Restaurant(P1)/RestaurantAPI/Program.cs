@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager Config = builder.Configuration;
 
+
 builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -56,8 +57,10 @@ builder.Services.AddSwaggerGen(options =>
             Array.Empty<string>()
         }
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
-
+    
 builder.Services.AddScoped<IRepo>(repo => new SqlRepo(Config.GetConnectionString("Database")));
 builder.Services.AddScoped<IAccountLogic, AccountLogic>();
 builder.Services.AddScoped<IJWTRepo, JWTRepo>();

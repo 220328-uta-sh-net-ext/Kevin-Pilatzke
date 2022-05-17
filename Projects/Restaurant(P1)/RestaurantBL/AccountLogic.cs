@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace RestaurantBL
 {
@@ -134,7 +138,7 @@ namespace RestaurantBL
         public bool AuthUser(UserAcc user)
         {
             List<UserAcc> users = repo.GetAllUserAccs();
-            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password && u.Access == user.Access))
+            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password))// && u.Access == user.Access))
             {
                 return true;
             }

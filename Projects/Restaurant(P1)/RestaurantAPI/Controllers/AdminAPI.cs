@@ -22,8 +22,13 @@ namespace RestaurantAPI.Controllers
             this.memoryCache = memoryCache;
             this.repo = repo;
         }
+        /// <summary>
+        /// Search All Users in Database by Name
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <returns></returns>
         [Authorize(Roles = "admin")]
-        [HttpGet("Search Users by Name")]
+        [HttpGet("SearchUsers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public async Task<ActionResult<List<UserAcc>>> SearchAllUsers([BindRequired]string Username)

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace RestaurantModels
@@ -17,6 +18,7 @@ namespace RestaurantModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [JsonIgnore]
         public string Access { get; set; }
 
         public override string ToString()
