@@ -31,8 +31,14 @@ namespace RestaurantAPI.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
 
-        public ActionResult AddNewAccount([FromQuery][BindRequired]string Username,[BindRequired][DataType(DataType.Password)]string Password)
+        public async Task<ActionResult> AddNewAccount([FromQuery][BindRequired]string Username,[BindRequired][DataType(DataType.Password)]string Password)
         {
+            List<UserAcc> newList = new List<UserAcc>();
+            newList = await logic.GetUserAcc(Username);
+            if (newList.Count > 0)
+            {
+                return BadRequest("User in use, try a different user");
+            }
             UserAcc newUser = new UserAcc();
             newUser.Username = Username;
             newUser.Password = Password;
