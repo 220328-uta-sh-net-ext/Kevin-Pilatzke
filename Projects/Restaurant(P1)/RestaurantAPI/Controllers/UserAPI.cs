@@ -122,7 +122,7 @@ namespace RestaurantAPI.Controllers
             return Ok(restaurants);
         }
         /// <summary>
-        /// Search All Restaurants by State
+        /// Search All Restaurants by State via two letter abbreviation
         /// </summary>
         /// <param name="State"></param>
         /// <returns></returns>
@@ -134,6 +134,10 @@ namespace RestaurantAPI.Controllers
         public async Task<ActionResult<List<Restaurant>>> SearchRestaurantState([BindRequired]string State)
         {
             List<Restaurant> restaurants = new List<Restaurant>();
+            if(State.Length > 2)
+            {
+                return BadRequest("States are searched by 2 letter abbreviations");
+            }
             try
             {
                 restaurants = await logic.SearchRState(State);
@@ -155,7 +159,7 @@ namespace RestaurantAPI.Controllers
             return Ok(restaurants);
         }
         /// <summary>
-        /// Search All Restaurants by Zipcode 
+        /// Search All Restaurants by five digit Zipcode 
         /// </summary>
         /// <param name="zipcode"></param>
         /// <returns></returns>

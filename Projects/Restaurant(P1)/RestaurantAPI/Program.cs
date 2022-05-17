@@ -72,7 +72,7 @@ builder.Services.AddScoped<IJWTRepo, JWTRepo>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment()|| app.Environment.IsProduction())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
