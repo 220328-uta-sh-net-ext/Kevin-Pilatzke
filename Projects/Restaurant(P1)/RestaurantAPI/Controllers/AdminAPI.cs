@@ -53,8 +53,6 @@ namespace RestaurantAPI.Controllers
             return Ok(usernames);
         }
         //[HttpPost("Add Restaurant")]
-        //[ProducesResponseType(201)]
-        //[ProducesResponseType(400)]
         //[HttpDelete("Delete Restaurant")]
         //[HttpDelete("Delete Review")]
         //[HttpDelete("Delete User")]

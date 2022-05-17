@@ -22,6 +22,10 @@ namespace RestaurantDL
         {
             this.connectionString = connectionString;
         }
+        /// <summary>
+        /// Async Collect all Restaurants into a Task List
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Restaurant>> GetAllRestaurantsAsync()
         {
             string commandString = "SELECT * FROM RestaurantInformation;";
@@ -58,6 +62,10 @@ namespace RestaurantDL
             }
             return restaurants;
         }
+        /// <summary>
+        /// Async Collect all User Account Information into Task List
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<UserAcc>> GetAllUserAccsAsync()
         {
             string commandString = "SELECT * FROM UserAccounts;";
@@ -90,6 +98,10 @@ namespace RestaurantDL
             }
             return users;
         }
+        /// <summary>
+        /// Non Async Collect all Users into a List
+        /// </summary>
+        /// <returns></returns>
         public List<UserAcc> GetAllUserAccs()
         {
             string commandString = "SELECT * FROM UserAccounts;";
@@ -122,7 +134,10 @@ namespace RestaurantDL
             }
             return users;
         }
-
+        /// <summary>
+        /// Async Collect all Review section to Task List
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Feedback>> GetAllFeedbackAsync()
         {
             string commandString = "SELECT * FROM ReviewRating";
@@ -156,7 +171,11 @@ namespace RestaurantDL
             }
             return feedback;
         }
-
+        /// <summary>
+        /// Add Review to the SQL Database
+        /// </summary>
+        /// <param name="feedback"></param>
+        /// <returns></returns>
         public Feedback AddFeedback(Feedback feedback)
         {
             string commandString = "INSERT INTO dbo.ReviewRating VALUES (@username, @restaurantname, @review, @rating)";
@@ -172,7 +191,11 @@ namespace RestaurantDL
 
             return feedback;
         }
-
+        /// <summary>
+        /// Add Restaurant to the SQL Database
+        /// </summary>
+        /// <param name="restaurant"></param>
+        /// <returns></returns>
         public Restaurant AddRestaurant(Restaurant restaurant)
         {
             string commandString = "INSERT INTO dbo.RestaurantInformation (RestaurantName, City, State, ZipCode, Details) VALUES (@restaurantname, @city, @state, @zipcode, @details)";
@@ -189,7 +212,11 @@ namespace RestaurantDL
 
             return restaurant;
         }
-
+        /// <summary>
+        /// Add User to SQL Database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public UserAcc AddUser(UserAcc user)
         {
             string commandString = "INSERT INTO dbo.UserAccounts (Name, Password) VALUES (@name, @password)";

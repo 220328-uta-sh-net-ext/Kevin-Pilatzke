@@ -72,8 +72,8 @@ if (app.Environment.IsDevelopment()|| app.Environment.IsProduction())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantAPI");
-        c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantAPI"); 
+        c.InjectStylesheet("/swagger-ui/SwaggerDark.css"); //Thank you Amoenus Dev!
     });
 }
 

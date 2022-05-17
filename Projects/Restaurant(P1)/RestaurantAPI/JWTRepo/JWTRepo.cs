@@ -39,6 +39,11 @@ namespace RestaurantAPI.JWTRepo
             var token = tokenhander.CreateToken(tokenDescriptor);
             return new Tokens { Validation = tokenhander.WriteToken(token) };
         }*/
+        /// <summary>
+        /// Bearer Token System to build token for us
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public Tokens AuthUser(UserAcc user)
         {
             var tokenhander = new JwtSecurityTokenHandler();

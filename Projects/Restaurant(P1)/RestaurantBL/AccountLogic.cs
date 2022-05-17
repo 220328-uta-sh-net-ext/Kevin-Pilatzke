@@ -25,8 +25,7 @@ namespace RestaurantBL
         }
 
         /// <summary>
-        /// To make a functional Search Restaurant that utilizes all forms of search parameters,
-        /// A Search by each type was built for Restaurant Name and City/State/Zipcode of Restaurant location.
+        /// Search Restaurants by Restaurant name
         /// </summary>
         /// <param name="restaurantName"></param>
         /// <returns>Regardless of Type used, will return the entire details of Restaurant</returns>
@@ -36,24 +35,44 @@ namespace RestaurantBL
             var filteredRestaurants = restaurants.Where(r => r.RestaurantName.ToLower().Contains(RestaurantName.ToLower())).ToList();
             return filteredRestaurants;
         }
+        /// <summary>
+        /// Search Restaurants by City
+        /// </summary>
+        /// <param name="City"></param>
+        /// <returns></returns>
         public async Task<List<Restaurant>> SearchRCity(string City)
         {
             List<Restaurant> restaurants = await repo.GetAllRestaurantsAsync();
             var filteredRestaurants = restaurants.Where(r => r.City.ToLower().Contains(City.ToLower())).ToList();
             return filteredRestaurants;
         }
+        /// <summary>
+        /// Search Restaurants by State
+        /// </summary>
+        /// <param name="State"></param>
+        /// <returns></returns>
         public async Task<List<Restaurant>> SearchRState(string State)
         {
             List<Restaurant> restaurants = await repo.GetAllRestaurantsAsync();
             var filteredRestaurants = restaurants.Where(r => r.State.ToLower().Equals(State.ToLower())).ToList();
             return filteredRestaurants;
         }
+        /// <summary>
+        /// Search restaurants by Zipcode
+        /// </summary>
+        /// <param name="Zipcode"></param>
+        /// <returns></returns>
         public async Task<List<Restaurant>> SearchRZipcode(int Zipcode)
         {
             List<Restaurant> restaurants = await repo.GetAllRestaurantsAsync();
             var filteredRestaurants = restaurants.Where(r => r.ZipCode.Equals(Zipcode)).ToList();
             return filteredRestaurants;
         }
+        /// <summary>
+        /// Search all restaurants used with Review section
+        /// </summary>
+        /// <param name="RestaurantName"></param>
+        /// <returns></returns>
         public async Task<List<Restaurant>> SearchAllRestaurants(string RestaurantName)
         {
             List<Restaurant> restaurants = await repo.GetAllRestaurantsAsync();
@@ -116,7 +135,7 @@ namespace RestaurantBL
             return filterReviews;
         }
         /// <summary>
-        /// Not in Use, Intended for search all
+        /// Not in Use, Intended for search all, not implemented yet.
         /// </summary>
         /// <param name="rating"></param>
         /// <returns>with all other data related to restaurant, it will have the ratings which would be used for averages </returns>
@@ -135,13 +154,18 @@ namespace RestaurantBL
             }
             return false;
         }*/
+        /// <summary>
+        /// Verifying User from Input to SQL Database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool AuthUser(UserAcc user)
         {
             List<UserAcc> users = repo.GetAllUserAccs();
-            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password))// && u.Access == user.Access))
+            if (users.Exists(u => u.Username == user.Username && u.Password == user.Password && u.Access == user.Access))
             {
                 return true;
-            }
+            }            
             return false;
         }
     }

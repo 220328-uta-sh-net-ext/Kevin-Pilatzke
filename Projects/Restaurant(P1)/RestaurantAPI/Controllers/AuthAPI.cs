@@ -59,7 +59,7 @@ namespace RestaurantAPI.Controllers
             }
         }
         /// <summary>
-        /// Aquire Bearer token by logging in with credentials. [Access = any value] [Authorize at top with token [Value: Bearer 'add token']
+        /// Aquire Bearer token by logging in with credentials,[Access:'Basic'][Authorize at top with token [Value: Bearer 'add token']
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -69,9 +69,16 @@ namespace RestaurantAPI.Controllers
         public IActionResult Authenticate([FromQuery]UserAcc user)
         {
             var auth = repo.AuthUser(user);
-            if (auth == null)
+            try
             {
-                return BadRequest("Incorrect Log in Credentials");
+                if (auth == null)
+                {
+                    return BadRequest("Incorrect Log in Credentials");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
             return Ok(auth);
         }
