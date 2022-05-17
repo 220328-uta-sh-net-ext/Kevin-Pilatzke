@@ -41,13 +41,15 @@ namespace UnitTesting
                 RestaurantName = "All 'Mericna",
                 State = "TX",
                 City = "Dallas",
-                ZipCode = 75001
+                ZipCode = 75001,
+                Details = null
             };
-            Assert.Contains("all", "All 'Merican");
+            Assert.Contains("ll", "All 'Merican");
             Assert.DoesNotContain("toast", "All 'Merican");
             Assert.True(newRestaurant.ZipCode == 75001);
             Assert.NotNull(newRestaurant.RestaurantName);
-            Assert.False(newRestaurant.City != "Kansas");
+            Assert.False(newRestaurant.City == "Kansas");
+            Assert.Null(newRestaurant.Details);
         }
     }
 }

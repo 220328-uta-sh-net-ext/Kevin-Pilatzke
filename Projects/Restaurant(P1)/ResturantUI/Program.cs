@@ -3,15 +3,7 @@ using RestaurantBL;
 using RestaurantDL;
 using RestaurantUI;
 
-/// <summary>
-/// Create Logger. Will keep track of new accounts created, errors throughout, logging in via admin account, adding new restaurants
-/// </summary>
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.File("D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Project 0/P0 Restaurant/ResturantLibrary/Database/user.txt")
-    .CreateLogger();
-
-string connectionFilePath = "D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Project 0/P0 Restaurant/ResturantLibrary/Database/Connection.txt";
-string connectionString = File.ReadAllText(connectionFilePath);
+string connectionString = File.ReadAllText("/appsetting.json");
 
 IRepo repo = new SqlRepo(connectionString);
 IAccountLogic logic = new AccountLogic(repo);

@@ -7,6 +7,7 @@ using RestaurantAPI.JWTRepo;
 using RestaurantBL;
 using RestaurantDL;
 using RestaurantModels;
+using Serilog;
 using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantAPI.Controllers
@@ -43,19 +44,22 @@ namespace RestaurantAPI.Controllers
             newList = await logic.GetUserAcc(Username);
             if (newList.Count > 0)
             {
-                return BadRequest("User in use, try a different user");
+                Log.Information($"Tried Username in use: {Username}");
+                return BadRequest($"{Username} in use, try a different Username");
             }
             UserAcc newUser = new UserAcc();
             newUser.Username = Username;
             newUser.Password = Password;
             try
             {
+                Log.Information("Added new user: " + newUser.Username);
                 sqlrepo.AddUser(newUser);
                 return CreatedAtAction("AddNewAccount", newUser);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex);
+                Log.Information("Tried to Create new User: " + ex.Message);
+                return BadRequest(ex.Message);
             }
         }
         /// <summary>
@@ -73,11 +77,13 @@ namespace RestaurantAPI.Controllers
             {
                 if (auth == null)
                 {
+                    Log.Information("Failed Authentication via Credentials");
                     return BadRequest("Incorrect Log in Credentials");
                 }
             }
             catch (Exception ex)
             {
+                Log.Information("Failed Authentication: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(auth);

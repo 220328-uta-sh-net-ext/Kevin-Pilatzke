@@ -4,12 +4,17 @@ using Microsoft.OpenApi.Models;
 using RestaurantAPI.JWTRepo;
 using RestaurantBL;
 using RestaurantDL;
+using Serilog;
 using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 ConfigurationManager Config = builder.Configuration;
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("D:/Documents/Work/Programming Info/220328utashnetext/Kevin-Pilatzke/Projects/Restaurant(P1)/RestaurantAPI/JWTRepo/Logger.xml")
+    .CreateLogger();
+
 
 
 builder.Services.AddAuthentication(options => {

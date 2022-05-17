@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using RestaurantBL;
 using RestaurantDL;
 using RestaurantModels;
+using Serilog;
 
 namespace RestaurantAPI.Controllers
 {
@@ -39,17 +40,21 @@ namespace RestaurantAPI.Controllers
                 usernames = await logic.SearchUser(Username);
                 if(usernames.Count <= 0)
                 {
+                    Log.Information($"Admin checking {Username} in database");
                     return NotFound($"No users with the name {Username}.");
                 }
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
+            Log.Information($"Admin checking {usernames} in database");
             return Ok(usernames);
         }
         //[HttpPost("Add Restaurant")]

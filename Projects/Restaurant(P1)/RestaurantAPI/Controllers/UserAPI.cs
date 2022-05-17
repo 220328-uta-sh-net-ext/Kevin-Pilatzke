@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using RestaurantBL;
 using RestaurantDL;
 using RestaurantModels;
+using Serilog;
 
 namespace RestaurantAPI.Controllers
 {
@@ -44,10 +45,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(restaurants);
@@ -75,10 +78,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(restaurants);
@@ -106,10 +111,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(restaurants);
@@ -137,10 +144,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(restaurants);
@@ -168,10 +177,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
             return Ok(restaurants);
@@ -229,10 +240,12 @@ namespace RestaurantAPI.Controllers
                 }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -277,10 +290,12 @@ namespace RestaurantAPI.Controllers
             }
             catch (SqlException ex)
             {
+                Log.Information("Sql Exception Type: " + ex.Message);
                 return BadRequest(ex);
             }
             catch (Exception ex)
             {
+                Log.Information("Exception Type: " + ex.Message);
                 return BadRequest(ex);
             }
         }
