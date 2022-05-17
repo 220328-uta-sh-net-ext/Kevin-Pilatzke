@@ -70,9 +70,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()|| app.Environment.IsProduction())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(options =>
+    app.UseSwaggerUI(c =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantAPI");
+        c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
     });
 }
 
@@ -80,6 +81,7 @@ app.UseHttpsRedirection();
 app.Logger.LogInformation("App Started");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.MapControllers();
 
