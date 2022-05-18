@@ -1,0 +1,5 @@
+name: .Net
+
+on:
+  push:
+#We will do this at some point
