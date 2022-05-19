@@ -1,5 +1,5 @@
-name: .Net
+# name: .Net
 
-on:
-  push:
+# on:
+  # push:
 #We will do this at some point
